@@ -6,7 +6,7 @@ body {
   margin: 0;
   color: #fff;
   /* Растягиваем body по высоте html */
-  min-height: 100%;
+  min-height: 99%;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
