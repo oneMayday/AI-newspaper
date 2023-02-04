@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'countries.apps.CountriesConfig'
+    'ai_blog'
 ]
 
 MIDDLEWARE = [
