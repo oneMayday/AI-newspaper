@@ -1,6 +1,14 @@
  {% load static %}
 
- .u-section-1 {
+.post-main {
+  text-decoration: none;
+  color: #000000;
+}
+.post-main:hover {
+  text-decoration: none;
+}
+
+.u-section-1 {
   background-image: linear-gradient(white, #b3b3b3);
 }
 
