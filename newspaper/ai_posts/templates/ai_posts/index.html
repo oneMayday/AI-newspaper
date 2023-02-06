@@ -1,8 +1,8 @@
-{% extends "ai_blog/includes/base.html" %}
+{% extends "ai_posts/includes/base.html" %}
 {% load static %}
 
 {% block page-css %}
-<link rel="stylesheet" href="{% static 'ai_blog/css/index.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'ai_posts/css/index.css' %}" media="screen">
 {% endblock %}
 
 {% block content %}
@@ -20,12 +20,16 @@
                             <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-20 u-layout-cell-1">
                                 <div class="u-border-1 u-border-grey-40 u-border-no-bottom u-border-no-left u-border-no-right u-container-layout u-container-layout-1">
                                     <h3 class="u-text u-text-default u-text-3">Новости</h3>
-                                    <p class="u-text u-text-default u-text-4">
-                                        <span style="font-size: 1.25rem;">Заголовок</span>
-                                        <br>Sample text. Click to select the text box. Click again or double click to
-                                        start editing the text .&nbsp;Sample text. Click to select the text box. Click
-                                        again or double click to start editing the text&nbsp;
-                                    </p>
+                                    <a class="post-main" href="#">
+                                        <p class="u-text u-text-default u-text-4">
+                                            <span style="font-size: 1.25rem;">Заголовок</span>
+                                            <br>Sample text. Click to select the text box. Click again or double click
+                                            to
+                                            start editing the text .&nbsp;Sample text. Click to select the text box.
+                                            Click
+                                            again or double click to start editing the text&nbsp;
+                                        </p>
+                                    </a>
                                 </div>
                             </div>
                             <div class="u-align-left u-container-style u-layout-cell u-left-cell u-shape-rectangle u-size-20 u-layout-cell-2"
@@ -33,12 +37,16 @@
                                  data-animation-direction="">
                                 <div class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-container-layout u-container-layout-2">
                                     <h3 class="u-text u-text-default u-text-5">Бизнес</h3>
-                                    <p class="u-text u-text-default u-text-6">
-                                        <span style="font-size: 1.25rem;"> Заголовок</span>
-                                        <br>Sample text. Click to select the text box. Click again or double click to
-                                        start editing the text .&nbsp;Sample text. Click to select the text box. Click
-                                        again or double click to start editing the text&nbsp;
-                                    </p>
+                                    <a class="post-main" href="#">
+                                        <p class="u-text u-text-default u-text-6">
+                                            <span style="font-size: 1.25rem;"> Заголовок</span>
+                                            <br>Sample text. Click to select the text box. Click again or double click
+                                            to
+                                            start editing the text .&nbsp;Sample text. Click to select the text box.
+                                            Click
+                                            again or double click to start editing the text&nbsp;
+                                        </p>
+                                    </a>
                                 </div>
                             </div>
                             <div class="u-align-left u-container-style u-layout-cell u-left-cell u-shape-rectangle u-size-20 u-layout-cell-3"
@@ -46,12 +54,16 @@
                                  data-animation-direction="">
                                 <div class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-border-no-top u-container-layout u-container-layout-3">
                                     <h3 class="u-text u-text-default u-text-7">Наука</h3>
-                                    <p class="u-text u-text-default u-text-8">
-                                        <span style="font-size: 1.25rem;"> Заголовок</span>
-                                        <br>Sample text. Click to select the text box. Click again or double click to
-                                        start editing the text .&nbsp;Sample text. Click to select the text box. Click
-                                        again or double click to start editing the text&nbsp;
-                                    </p>
+                                    <a class="post-main" href="#">
+                                        <p class="u-text u-text-default u-text-8">
+                                            <span style="font-size: 1.25rem;"> Заголовок</span>
+                                            <br>Sample text. Click to select the text box. Click again or double click
+                                            to
+                                            start editing the text .&nbsp;Sample text. Click to select the text box.
+                                            Click
+                                            again or double click to start editing the text&nbsp;
+                                        </p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -70,36 +82,46 @@
                             <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-20 u-layout-cell-5">
                                 <div class="u-border-1 u-border-grey-40 u-border-no-bottom u-border-no-left u-border-no-right u-container-layout u-container-layout-5">
                                     <h3 class="u-text u-text-default u-text-9">Путешествия</h3>
-                                        <a class="post-main" href="#">
-                                            <p class="u-text u-text-default u-text-10">
+                                    <a class="post-main" href="#">
+                                        <p class="u-text u-text-default u-text-10">
                                             <span style="font-size: 1.25rem;"> Заголовок</span>
-                                            <br>Sample text. Click to select the text box. Click again or double click to
-                                            start editing the text .&nbsp;Sample text. Click to select the text box. Click
+                                            <br>Sample text. Click to select the text box. Click again or double click
+                                            to
+                                            start editing the text .&nbsp;Sample text. Click to select the text box.
+                                            Click
                                             again or double click to start editing the text&nbsp;
-                                            </p>
-                                        </a>
+                                        </p>
+                                    </a>
                                 </div>
                             </div>
                             <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-20 u-layout-cell-6">
                                 <div class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-container-layout u-container-layout-6">
                                     <h3 class="u-text u-text-default u-text-11">Спорт</h3>
-                                    <p class="u-text u-text-default u-text-12">
-                                        <span style="font-size: 1.25rem;"> Заголовок</span>
-                                        <br>Sample text. Click to select the text box. Click again or double click to
-                                        start editing the text .&nbsp;Sample text. Click to select the text box. Click
-                                        again or double click to start editing the text&nbsp;
-                                    </p>
+                                    <a class="post-main" href="#">
+                                        <p class="u-text u-text-default u-text-12">
+                                            <span style="font-size: 1.25rem;"> Заголовок</span>
+                                            <br>Sample text. Click to select the text box. Click again or double click
+                                            to
+                                            start editing the text .&nbsp;Sample text. Click to select the text box.
+                                            Click
+                                            again or double click to start editing the text&nbsp;
+                                        </p>
+                                    </a>
                                 </div>
                             </div>
                             <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-20 u-layout-cell-7">
                                 <div class="u-border-1 u-border-grey-40 u-border-no-left u-border-no-right u-border-no-top u-container-layout u-container-layout-7">
                                     <h3 class="u-text u-text-default u-text-13">IT</h3>
-                                    <p class="u-text u-text-default u-text-14">
-                                        <span style="font-size: 1.25rem;"> Заголовок</span>
-                                        <br>Sample text. Click to select the text box. Click again or double click to
-                                        start editing the text .&nbsp;Sample text. Click to select the text box. Click
-                                        again or double click to start editing the text&nbsp;
-                                    </p>
+                                    <a class="post-main" href="#">
+                                        <p class="u-text u-text-default u-text-14">
+                                            <span style="font-size: 1.25rem;"> Заголовок</span>
+                                            <br>Sample text. Click to select the text box. Click again or double click
+                                            to
+                                            start editing the text .&nbsp;Sample text. Click to select the text box.
+                                            Click
+                                            again or double click to start editing the text&nbsp;
+                                        </p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
