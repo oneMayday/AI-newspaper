@@ -7,4 +7,5 @@ urlpatterns = [
     path('contacts/', contacts, name='contacts'),
     path('about/', about, name='about'),
     path('mailing/', mailing, name='mailing'),
+    # path('categories/<')
 ]
