@@ -1,18 +1,11 @@
+{% extends "ai_blog/includes/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html style="font-size: 16px;" lang="ru">
-<head>
-    <meta charset="utf-8">
-    <title>AI blog - Главная</title>
-    <link rel="stylesheet" href="{% static 'ai_blog/css/index.css' %}" media="screen">
-    {% include "ai_blog/includes/links_and_scripts.html" %}
-</head>
+{% block page-css %}
+<link rel="stylesheet" href="{% static 'ai_blog/css/index.css' %}" media="screen">
+{% endblock %}
 
-<body data-home-page="index.html" data-home-page-title="index" class="u-body u-xl-mode" data-lang="ru">
-
-{% include "ai_blog/includes/header.html" %}
-
+{% block content %}
 <section
         class="u-align-center-lg u-align-center-md u-align-center-xl u-align-left-sm u-align-left-xs u-clearfix u-gradient u-section-1"
         data-image-width="2000" data-image-height="1333" id="sec-5e83">
@@ -120,8 +113,4 @@
            class="u-btn u-btn-round u-button-style u-grey-50 u-radius-18 u-text-black u-btn-1">Подписаться</a>
     </div>
 </section>
-
-{% include "ai_blog/includes/footer.html" %}
-
-</body>
-</html>
+{% endblock %}

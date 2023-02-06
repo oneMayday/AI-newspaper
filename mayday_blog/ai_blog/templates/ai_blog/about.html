@@ -1,19 +1,11 @@
+{% extends "ai_blog/includes/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html style="font-size: 16px;" lang="ru">
+{% block page-css %}
+<link rel="stylesheet" href="{% static 'ai_blog/css/about.css' %}" media="screen">
+{% endblock %}
 
-<head>
-    <meta charset="utf-8">
-    <title>О нас</title>
-    <link rel="stylesheet" href="{% static 'ai_blog/css/about.css' %}" media="screen">
-    {% include "ai_blog/includes/links_and_scripts.html" %}
-</head>
-
-<body class="u-body u-xl-mode" data-lang="ru">
-
-{% include "ai_blog/includes/header.html" %}
-
+{% block content %}
 <section class="u-align-center u-clearfix u-white u-section-1" id="carousel_6ee3" style="height: 545px;">
     <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-left u-border-10 u-border-no-bottom u-border-no-top u-border-white u-container-style u-group u-shape-rectangle u-group-1">
@@ -29,8 +21,4 @@
         </div>
     </div>
 </section>
-
-{% include "ai_blog/includes/footer.html" %}
-
-</body>
-</html>
+{% endblock %}
