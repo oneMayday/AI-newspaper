@@ -32,26 +32,26 @@
                     </li>
                     <li class="u-nav-item"><a
                             class="u-border-2 u-border-active-grey-90 u-border-hover-grey-50 u-border-no-left u-border-no-right u-border-no-top u-button-style u-hover-white u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90"
-                            style="padding: 10px 0px;">Категории</a>
+                            style="padding: 10px 0px;" href="{% url 'categories' %}">Категории</a>
                         <div class="u-nav-popup">
                             <ul class="u-border-1 u-border-grey-30 u-h-spacing-20 u-nav u-unstyled u-v-spacing-13">
                                 <li class="u-nav-item"><a class="u-button-style u-grey-5 u-hover-grey-15 u-nav-link"
-                                                          href="posts.html">Новости</a>
+                                                          href="{% url 'cat_posts' 1 %}">Новости</a>
                                 </li>
                                 <li class="u-nav-item"><a class="u-button-style u-grey-5 u-hover-grey-15 u-nav-link"
-                                                          href="posts.html">Бизес</a>
+                                                          href="{% url 'cat_posts' 2 %}">Бизнес</a>
                                 </li>
                                 <li class="u-nav-item"><a class="u-button-style u-grey-5 u-hover-grey-15 u-nav-link"
-                                                          href="posts.html">Наука</a>
+                                                          href="{% url 'cat_posts' 3 %}">Наука</a>
                                 </li>
                                 <li class="u-nav-item"><a class="u-button-style u-grey-5 u-hover-grey-15 u-nav-link"
-                                                          href="posts.html">Путешествия</a>
+                                                          href="{% url 'cat_posts' 4 %}">Путешествия</a>
                                 </li>
                                 <li class="u-nav-item"><a class="u-button-style u-grey-5 u-hover-grey-15 u-nav-link"
-                                                          href="posts.html">Спорт</a>
+                                                          href="{% url 'cat_posts' 5 %}">Спорт</a>
                                 </li>
                                 <li class="u-nav-item"><a class="u-button-style u-grey-5 u-hover-grey-15 u-nav-link"
-                                                          href="posts.html">IT</a>
+                                                          href="{% url 'cat_posts' 6 %}">IT</a>
                                 </li>
                             </ul>
                         </div>

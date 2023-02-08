@@ -1,0 +1,17 @@
+{% extends "ai_posts/includes/base.html" %}
+{load static}
+
+{% block content %}
+<section class="u-align-left u-clearfix u-section-1" id="sec-0a28">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+            <h3>Выберите категорию:</h3>
+            <ul>
+                {% for cat in categories %}
+                <li><h5><a href="{% url 'cats_posts' cat.pk %}">{{cat.title}}</a></h5></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

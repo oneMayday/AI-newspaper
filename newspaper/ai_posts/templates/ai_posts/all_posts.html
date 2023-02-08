@@ -1,0 +1,25 @@
+{% extends "ai_posts/includes/base.html" %}
+{% load static %}
+
+{% block page-css %}
+<link rel="stylesheet" href="{% static 'ai_posts/css/all-posts.css' %}" media="screen">
+{% endblock %}
+
+{% block content %}
+<section class="u-align-left u-clearfix u-section-1" id="sec-0a28">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+            <ul style="list-style-type: none;">
+                <h4><a class="catgg" href="{% url 'categories' %}">Категория</a> → {{category}}</h4>
+                {% for post in posts %}
+                <li class="cat-navy-post">
+                    <h5>{{post}}</h5>
+                    <p>{{post.text}}</p>
+                    <h7>Дата публикации: {{post.time_create}}</h7>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

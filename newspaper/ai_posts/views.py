@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+
+from .models import *
 
 
 def index(request):
@@ -15,3 +17,18 @@ def mailing(request):
 
 def about(request):
     return render(request, 'ai_posts/about.html', {'title': 'О нас'})
+
+
+def show_categories(request):
+    cats = Category.objects.all()
+    return render(request, 'ai_posts/categories.html', {'categories': cats})
+
+
+def show_cat_posts(request, category_id):
+    category = Category.objects.filter(pk=category_id)[0].title
+    posts = Post.objects.filter(post_category_id=category_id)
+    return render(request, 'ai_posts/all_posts.html', {'posts': posts, 'category': category})
+
+
+def show_post(request):
+    pass
