@@ -5,7 +5,7 @@ from .models import *
 
 def index(request):
     categories = Category.objects.all()
-    return render(request, 'ai_posts/index.html', {'title': 'Главная'})
+    return render(request, 'ai_posts/index.html', {'title': 'Главная', 'categories': categories})
 
 
 def contacts(request):
@@ -18,3 +18,14 @@ def mailing(request):
 
 def about(request):
     return render(request, 'ai_posts/about.html', {'title': 'О нас'})
+
+
+def categories(request):
+    cats = Category.objects.all()
+    return render(request, 'ai_posts/categories.html', {'categories': cats})
+
+
+def all_posts(request, cat_id):
+    category = Category.objects.filter(pk=cat_id)[0]
+    posts = Post.objects.filter(post_category_id=cat_id)
+    return render(request, 'ai_posts/all_posts.html', {'category': category, 'posts': posts})

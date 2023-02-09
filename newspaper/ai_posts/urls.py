@@ -7,5 +7,6 @@ urlpatterns = [
     path('contacts/', contacts, name='contacts'),
     path('about/', about, name='about'),
     path('mailing/', mailing, name='mailing'),
-    # path('categories/<')
+    path('categories/', categories, name='categories'),
+    path('categories/<int:cat_id>/', all_posts, name='posts'),
 ]

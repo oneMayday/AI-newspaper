@@ -18,14 +18,11 @@
 			<nav>
 				<ul class="menu">
 					<li><a href="{% url 'home' %}">Главная</a></li>
-					<li><a href="#">Категории</a>
+					<li><a href="{% url 'categories' %}">Категории</a>
 						<ul>
-							<li><a href="#">Новости</a></li>
-							<li><a href="#">Бизнес</a></li>
-							<li><a href="#">Наука</a></li>
-							<li><a href="#">Путешествия</a></li>
-							<li><a href="#">Спорт</a></li>
-							<li><a href="#">IT</a></li>
+							{% for cat in categories %}
+							<li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
+							{% endfor %}
 						</ul>
 					</li>
 					<li><a href="{% url 'mailing' %}">Рассылка</a></li>

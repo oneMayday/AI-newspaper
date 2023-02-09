@@ -85,7 +85,7 @@ header {
 }
 
 header .header-block {
-	width: 80%;
+	width: 90%;
 	align-items: center;
 }
 
@@ -100,10 +100,13 @@ header .logo:hover {
     transform: scale(1.2);
 }
 
+
 header nav ul li {
     position: relative;
     float: left;
 }
+
+/* Стили меню хедера */
 
 header nav ul li a {
     padding: 15px;
@@ -112,11 +115,12 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
+    display: block;
     background: #000;
     color: #fff;
 }
 
-nav ul li ul {
+header nav ul li ul {
     position: absolute;
     left: 0;
     width: 180px;
@@ -125,16 +129,16 @@ nav ul li ul {
     transition: .5s;
 }
 
-nav ul li ul li {
+header nav ul li ul li {
     width: 100%;
     border: 1px solid rgba(0,0,0,.1);
 }
 
-nav ul li ul li ul {
+header nav ul li ul li ul {
     left: 180px;
     top: 0;
 }
 
-nav ul li:hover > ul {
+header nav ul li:hover > ul {
     display: initial;
 }
