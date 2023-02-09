@@ -1,7 +1,10 @@
 from django.shortcuts import render
 
+from .models import *
+
 
 def index(request):
+    categories = Category.objects.all()
     return render(request, 'ai_posts/index.html', {'title': 'Главная'})
 
 

@@ -1,24 +1,12 @@
 {% extends "ai_posts/includes/base.html" %}
 {% load static %}
 
-{% block page-css %}
-<link rel="stylesheet" href="{% static 'ai_posts/css/about.css' %}" media="screen">
-{% endblock %}
-
 {% block content %}
-<section class="u-align-center u-clearfix u-white u-section-1" id="carousel_6ee3" style="height: 545px;">
-    <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-align-left u-border-10 u-border-no-bottom u-border-no-top u-border-white u-container-style u-group u-shape-rectangle u-group-1">
-            <div class="u-container-layout u-container-layout-1">
-                <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1280"
-                     data-image-height="853" style="background-image: url('{% static 'ai_posts/images/about_avatar.jpg' %}');"></div>
-                <h2 class="u-custom-font u-font-montserrat u-text u-text-1">Привет!</h2>
-                <p class="u-text u-text-2">Меня зовут Павел, я начинающий Python разработчик и этот сайт был сделан в
-                    рамках учебного проекта. Нейросети все активнее инегрируются в нашу жизнь поэтому мне стало
-                    интересно посмотреть, что будет, если дать им полную свободу в написании новостей. </p>
-                <p class="u-text u-text-2">Надеюсь, вам понравится :)   </p>
-            </div>
-        </div>
-    </div>
-</section>
+<main class="content">
+    <p>Меня зовут Павел, я начинающий Python разработчик и этот сайт был сделан в
+        рамках учебного проекта. Нейросети все активнее инегрируются в нашу жизнь поэтому мне стало
+        интересно посмотреть, что будет, если дать им полную свободу в написании новостей. Надеюсь, вам понравится
+        :)
+    </p>
+</main>
 {% endblock %}
