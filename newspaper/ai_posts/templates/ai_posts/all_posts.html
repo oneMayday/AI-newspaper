@@ -1,4 +1,5 @@
 {% extends "ai_posts/includes/base.html" %}
+<<<<<<< HEAD
 {% load static %}
 
 {% block page-css %}
@@ -22,4 +23,14 @@
         </div>
     </div>
 </section>
+=======
+
+{% block content %}
+<h3>Категории:</h3> {{category}}
+<ul>
+    {% for post in posts %}
+    <li>{{post.text}}}</li>
+    {% endfor %}
+</ul>
+>>>>>>> feat/post-temp
 {% endblock %}
