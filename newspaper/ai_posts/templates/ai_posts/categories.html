@@ -1,32 +1,12 @@
 {% extends "ai_posts/includes/base.html" %}
-<<<<<<< HEAD
-{% load static %}
-
-{% block page-css %}
-<link rel="stylesheet" href="{% static 'ai_posts/css/categories.css' %}" media="screen">
-{% endblock %}
 
 {% block content %}
-<section class="u-align-left u-clearfix u-section-1" style="padding-bottom: 197px;" id="sec-0a28">
-    <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
-            <h3>Категории:</h3>
-            <ul>
-                {% for cat in categories %}
-                    <li><h5><a href="{% url 'cat_posts' cat.pk %}">{{cat.title}}</a></h5></li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-</section>
-=======
 
-{% block content %}
 <h3>Категории:</h3>
 <ul>
     {% for cat in categories %}
     <li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
     {% endfor %}
 </ul>
->>>>>>> feat/post-temp
+
 {% endblock %}
