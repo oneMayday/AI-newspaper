@@ -33,34 +33,43 @@ body {
 
 .main-page-title {
 	width: 90%;
-	height: 10%;
+	height: 15%;
+	padding-top: 20px;
 	text-align: center;
 }
 
+.main-page-title h2 {
+    font-size: 40px;
+}
+
 .main-page {
-	border: 1px solid;
-	width: 90%;
-	height: 90%;
+	width: 85%;
+	height: 85%;
 	margin: 0px;
 	padding: 0px;
 }
 
 .main-page ul {
 	column-count: 2;
-	column-gap: 350px;
+	column-gap: 400px;
 	padding-top: 50px;
 }
 
 .main-page ul li {
 	border-top: 1px solid #000000;
-	border-bottom: 1px solid #000000;
 	padding: 20px;
 }
+.dsadas{
+    d
+}
+.post {padding-top: 20px;}
 
 /* Стили футера */
 
 .footer {
-    margin-top: auto;
+	margin-top: auto;
+	text-align: center;
+	height: 40px;
 	background-color: #404040;
 	padding: 30px;
 }
@@ -69,17 +78,17 @@ body {
 /* Стили хедера*/
 
 header {
-    position: flex;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
+	position: flex;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
 	height: 70px;
-    background: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 8%;
+	background: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 8%;
 	border-bottom: 2px solid #000000;
 	font-size: 20px;
 }
@@ -90,55 +99,55 @@ header .header-block {
 }
 
 header .logo {
-    font-size: 20px;
-    font-weight: 900;
-    color: #000;
-    transition: .5s;
+	font-size: 20px;
+	font-weight: 900;
+	color: #000;
+	transition: .5s;
 }
 
 header .logo:hover {
-    transform: scale(1.2);
+	transform: scale(1.2);
 }
 
 
 header nav ul li {
-    position: relative;
-    float: left;
+	position: relative;
+	float: left;
 }
 
 /* Стили меню хедера */
 
 header nav ul li a {
-    padding: 15px;
-    color: #000;
-    display: block;
+	padding: 15px;
+	color: #000;
+	display: block;
 }
 
 header nav ul li a:hover {
-    display: block;
-    background: #000;
-    color: #fff;
+	display: block;
+	background: #000;
+	color: #fff;
 }
 
 header nav ul li ul {
-    position: absolute;
-    left: 0;
-    width: 180px;
-    background: #fff;
-    display: none;
-    transition: .5s;
+	position: absolute;
+	left: 0;
+	width: 180px;
+	background: #fff;
+	display: none;
+	transition: .5s;
 }
 
 header nav ul li ul li {
-    width: 100%;
-    border: 1px solid rgba(0,0,0,.1);
+	width: 100%;
+	border: 1px solid rgba(0,0,0,.1);
 }
 
 header nav ul li ul li ul {
-    left: 180px;
-    top: 0;
+	left: 180px;
+	top: 0;
 }
 
 header nav ul li:hover > ul {
-    display: initial;
+	display: initial;
 }
