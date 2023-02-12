@@ -1,15 +1,19 @@
 {% extends "ai_posts/includes/base.html" %}
 {% load static %}
 
+{% block additional %}
+<link rel="stylesheet" href="{% static 'ai_posts/css/contacts.css' %}"/>
+{% endblock %}
+
 {% block content %}
-
-<main class="content">
-    <div>
-        <h3>Контактная информация:</h3>
-        <a href="mailto:pps.mayday@gmail.com">Email: pps.mayday@gmail.com</a>
-        <a href="https://github.com/oneMayday">Мой гитхаб: ​https://github.com/oneMayday</a>
-        <a href="https://github.com/oneMayday">LinkedIn:</a>
-    </div>
+<main class="contacts-content">
+	<div class="contacts">
+		<h2>Мои контакты:</h2>
+		<ul>
+			<li><img src="{% static 'ai_posts/images/gmail-logo.png' %}" align="center">  <span>pps.mayday@gmail.com</span></li>
+			<li><img src="{% static 'ai_posts/images/github-logo.png' %}" align="center"><a href="https://github.com/oneMayday">Github</a></li>
+			<li><img src="{% static 'ai_posts/images/linkedin-logo.png' %}" align="center"><a href="https://github.com/oneMayday">LinkedIn</a></li>
+		</ul>
+	</div>
 </main>
-
 {% endblock %}

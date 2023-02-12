@@ -4,9 +4,9 @@
 
 <h3>Категории:</h3>
 <ul>
-    {% for cat in categories %}
-    <li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
-    {% endfor %}
+	{% for cat in categories %}
+	<li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
+	{% endfor %}
 </ul>
 
 {% endblock %}

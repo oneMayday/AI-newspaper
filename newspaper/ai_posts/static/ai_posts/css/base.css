@@ -1,3 +1,4 @@
+/* Общие настройки страницы */
 * {
     margin: 0;
     padding: 0;
@@ -20,63 +21,19 @@ body {
     min-height: 100vh;
 }
 
-/* Стиль контента */
-
+/* Стиль внешней оболочки контента */
 .content {
 	background: linear-gradient(white, #b3b3b3);;
 	display: flex;
 	height: 100%;
 	flex-direction: column;
 	flex-wrap: wrap;
-	align-items: center;  
+	align-items: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
-
-.main-page-title {
-	width: 90%;
-	height: 15%;
-	padding-top: 20px;
-	text-align: center;
-}
-
-.main-page-title h2 {
-    font-size: 40px;
-}
-
-.main-page {
-	width: 85%;
-	height: 85%;
-	margin: 0px;
-	padding: 0px;
-}
-
-.main-page ul {
-	column-count: 2;
-	column-gap: 400px;
-	padding-top: 50px;
-}
-
-.main-page ul li {
-	border-top: 1px solid #000000;
-	padding: 20px;
-}
-.dsadas{
-    d
-}
-.post {padding-top: 20px;}
-
-/* Стили футера */
-
-.footer {
-	margin-top: auto;
-	text-align: center;
-	height: 40px;
-	background-color: #404040;
-	padding: 30px;
-}
-
 
 /* Стили хедера*/
-
 header {
 	position: flex;
 	top: 0;
@@ -116,7 +73,6 @@ header nav ul li {
 }
 
 /* Стили меню хедера */
-
 header nav ul li a {
 	padding: 15px;
 	color: #000;
@@ -150,4 +106,13 @@ header nav ul li ul li ul {
 
 header nav ul li:hover > ul {
 	display: initial;
+}
+
+/* Стили футера */
+.footer {
+	margin-top: auto;
+	text-align: center;
+	height: 40px;
+	background-color: #404040;
+	padding: 30px;
 }

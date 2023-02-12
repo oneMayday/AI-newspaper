@@ -4,41 +4,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'ai_posts/css/style.css' %}">
-    <title>{{title}}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="{% static 'ai_posts/css/base.css' %}" type="text/css">
+	{% block additional %}{% endblock %}
+	<title>{{title}}</title>
 </head>
 
 <body>
 
-    <div class="page">
-        <header>
-			<a href="#" class="logo">LOGO</a>
+<div class="page">
+	<header>
+		<a href="#" class="logo">LOGO</a>
 
-			<nav>
-				<ul class="menu">
-					<li><a href="{% url 'home' %}">Главная</a></li>
-					<li><a href="{% url 'categories' %}">Категории</a>
-						<ul>
-							{% for cat in categories %}
-							<li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
-							{% endfor %}
-						</ul>
-					</li>
-					<li><a href="{% url 'mailing' %}">Рассылка</a></li>
-					<li><a href="{% url 'contacts' %}">Контакты</a></li>
-					<li><a href="{% url 'about' %}">О нас</a></li>
-				</ul>
-			</nav>
-		</header>
+		<nav>
+			<ul class="menu">
+				<li><a href="{% url 'home' %}">Главная</a></li>
+				<li><a href="{% url 'categories' %}">Категории</a>
+					<ul>
+						{% for cat in categories %}
+						<li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
+						{% endfor %}
+					</ul>
+				</li>
+				<li><a href="{% url 'mailing' %}">Рассылка</a></li>
+				<li><a href="{% url 'contacts' %}">Контакты</a></li>
+				<li><a href="{% url 'about' %}">О нас</a></li>
+			</ul>
+		</nav>
+	</header>
 
-        {% block content %}
-        {% endblock %}
+		{% block content %}
+		{% endblock %}
 
-        <footer class="footer">
-			<p>Все новости и изображения на данном сайте созданы нейросетью и не имеют ничего общего с реальностью :) <span style="display: block; text-align: right;">© by Sazonov Pavel</span></p>
-		</footer>
-    </div>
+	<footer class="footer">
+		<p>Все новости и изображения на данном сайте созданы нейросетью и не имеют ничего общего с реальностью :) © by
+			Sazonov Pavel</p>
+	</footer>
+</div>
 
 </body>
 

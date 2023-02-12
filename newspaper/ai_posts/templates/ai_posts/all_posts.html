@@ -1,10 +1,12 @@
 {% extends "ai_posts/includes/base.html" %}
 
 {% block content %}
+
 <h3>Категории:</h3> {{category}}
 <ul>
-    {% for post in posts %}
-    <li>{{post.text}}}</li>
-    {% endfor %}
+	{% for post in posts %}
+	<li>{{post.text}}}</li>
+	{% endfor %}
 </ul>
+
 {% endblock %}

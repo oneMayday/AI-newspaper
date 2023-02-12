@@ -1,45 +1,74 @@
 {% extends "ai_posts/includes/base.html" %}
 {% load static %}
 
+{% block additional %}
+<link rel="stylesheet" href="{% static 'ai_posts/css/index.css' %}">
+{% endblock %}
+
 {% block content %}
 <main class="content">
-    <div class="main-page-title">
-        ALTERNATIVE stories
-        Мир глазами нейросети
-    </div>
-    <div class="main-page">
-        <ul>
-            <li>
-                <p>Новости Заголовок Sample text. Click to select the text box. Click again or double click to start
-                    editing the text . Sample text. Click to select the text box. Click again or double click to start
-                    editing the text </p>
-            </li>
-            <li>
-                <p>Новости Заголовок Sample text. Click to select the text box. Click again or double click to start
-                    editing the text . Sample text. Click to select the text box. Click again or double click to start
-                    editing the text </p>
-            </li>
-            <li>
-                <p>Новости Заголовок Sample text. Click to select the text box. Click again or double click to start
-                    editing the text . Sample text. Click to select the text box. Click again or double click to start
-                    editing the text </p>
-            </li>
-            <li>
-                <p>Новости Заголовок Sample text. Click to select the text box. Click again or double click to start
-                    editing the text . Sample text. Click to select the text box. Click again or double click to start
-                    editing the text </p>
-            </li>
-            <li>
-                <p>Новости Заголовок Sample text. Click to select the text box. Click again or double click to start
-                    editing the text . Sample text. Click to select the text box. Click again or double click to start
-                    editing the text </p>
-            </li>
-            <li>
-                <p>Новости Заголовок Sample text. Click to select the text box. Click again or double click to start
-                    editing the text . Sample text. Click to select the text box. Click again or double click to start
-                    editing the text </p>
-            </li>
-        </ul>
-    </div>
+	<div class="main-page-title">
+		<h2>ALT_stories</h2>
+		<h4>Мир глазами нейросети</h4>
+	</div>
+	<div class="main-page">
+		<img src="{% static 'ai_posts/images/main_page_central.jpg' %}">
+		<ul>
+			<li>
+				<h2>Новости </h2>
+				<div class="post">
+					<h4>Заголовок</h4>
+					<p>Sample text. Click to select the text box. Click again or double click to start
+						editing the text . Sample text. Click to select the text box. Click again or double click to
+						start editing the text </p>
+				</div>
+			</li>
+			<li>
+				<h2>Новости </h2>
+				<div class="post">
+					<h4>Заголовок</h4>
+					<p>Sample text. Click to select the text box. Click again or double click to start
+						editing the text . Sample text. Click to select the text box. Click again or double click to
+						start editing the text </p>
+				</div>
+			</li>
+			<li>
+				<h2>Новости </h2>
+				<div class="post">
+					<h4>Заголовок</h4>
+					<p>Sample text. Click to select the text box. Click again or double click to start
+						editing the text . Sample text. Click to select the text box. Click again or double click to
+						start editing the text </p>
+				</div>
+			</li>
+			<li>
+				<h2>Новости </h2>
+				<div class="post">
+					<h4>Заголовок</h4>
+					<p>Sample text. Click to select the text box. Click again or double click to start
+						editing the text . Sample text. Click to select the text box. Click again or double click to
+						start editing the text </p>
+				</div>
+			</li>
+			<li>
+				<h2>Новости </h2>
+				<div class="post">
+					<h4>Заголовок</h4>
+					<p>Sample text. Click to select the text box. Click again or double click to start
+						editing the text . Sample text. Click to select the text box. Click again or double click to
+						start editing the text </p>
+				</div>
+			</li>
+			<li>
+				<h2>Новости </h2>
+				<div class="post">
+					<h4>Заголовок</h4>
+					<p>Sample text. Click to select the text box. Click again or double click to start
+						editing the text . Sample text. Click to select the text box. Click again or double click to
+						start editing the text </p>
+				</div>
+			</li>
+		</ul>
+	</div>
 </main>
 {% endblock %}
