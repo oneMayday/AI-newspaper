@@ -1,0 +1,25 @@
+.about-content {
+	border-top: 1px #000000;
+	border-bottom: 1px #000000;
+	display: flex;
+	height: 300px;
+	width: 70%;
+	align-items: top;
+	padding-bottom: 40px;
+}
+
+.about-content img {
+	width: 250px;
+	height: 250px;
+	align: left;
+	border-radius: 50%;
+}
+
+.about-content p {
+	display: block;
+	padding-top: 50px;
+	padding-left: 50px;
+	font-size: 18px;
+	line-height: 35px;
+	text-indent: 35px;
+}

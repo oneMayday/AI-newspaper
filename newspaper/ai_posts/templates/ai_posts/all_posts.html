@@ -1,12 +1,29 @@
 {% extends "ai_posts/includes/base.html" %}
+{% load static %}
+
+{% block additional %}
+<link rel="stylesheet" href="{% static 'ai_posts/css/all-posts.css' %}"/>
+{% endblock %}
 
 {% block content %}
+<main class="content">
+	<div class="all-posts-content">
 
-<h3>Категории:</h3> {{category}}
-<ul>
-	{% for post in posts %}
-	<li>{{post.text}}}</li>
-	{% endfor %}
-</ul>
+		<h2>Категория → {{category}}</h2>
+		<ul>
+			{% for post in posts %}
+
+			<li>
+				<div class="texture_alignment">
+					<p class="alignleft">{{post.title}}</p>
+					<p class="alignright">Дата публикации: {{post.time_create}}</p>
+				</div>
+				<p class="text">{{post.text}}</p>
+			</li>
+
+			{% endfor %}
+		</ul>
+	</div>
+</main>
 
 {% endblock %}

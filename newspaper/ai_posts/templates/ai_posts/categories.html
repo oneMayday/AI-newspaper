@@ -1,12 +1,22 @@
 {% extends "ai_posts/includes/base.html" %}
+{% load static %}
+{% load category_tags %}
+
+{% block additional %}
+<link rel="stylesheet" href="{% static 'ai_posts/css/about.css' %}"/>
+{% endblock %}
 
 {% block content %}
+{% get_categories as categories %}
 
-<h3>Категории:</h3>
-<ul>
-	{% for cat in categories %}
-	<li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
-	{% endfor %}
-</ul>
-
+<main class="content">
+	<div class="categories-content">
+		<h3>Категории:</h3>
+		<ul>
+			{% for cat in categories %}
+			<li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</main>
 {% endblock %}

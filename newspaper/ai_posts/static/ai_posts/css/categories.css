@@ -1,0 +1,10 @@
+.categories-content {
+	background: linear-gradient(white, #b3b3b3);;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	flex-wrap: wrap;
+	padding-left: 115px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}

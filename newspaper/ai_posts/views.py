@@ -6,8 +6,7 @@ from .models import *
 
 
 def index(request):
-    categories = Category.objects.all()
-    return render(request, 'ai_posts/index.html', {'title': 'Главная', 'categories': categories})
+    return render(request, 'ai_posts/index.html', {'title': 'Главная',})
 
 
 def contacts(request):
@@ -23,8 +22,7 @@ def about(request):
 
 
 def categories(request):
-    cats = Category.objects.all()
-    return render(request, 'ai_posts/categories.html', {'categories': cats})
+    return render(request, 'ai_posts/categories.html',)
 
 
 def all_posts(request, cat_id):
