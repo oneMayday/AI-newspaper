@@ -8,7 +8,7 @@
 	<meta name="viewport"
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="{% static 'ai_posts/css/base.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'ai_posts/css/base.css' %}">
 	{% block additional %}{% endblock %}
 	<title>{{title}}</title>
 </head>
@@ -18,9 +18,8 @@
 <div class="page">
 	<header>
 		<a href="#" class="logo">LOGO</a>
-
 		<nav>
-			<ul class="menu">
+			<ul>
 				<li><a href="{% url 'home' %}">Главная</a></li>
 				<li><a href="{% url 'categories' %}">Категории</a>
 					<ul>
@@ -36,12 +35,15 @@
 		</nav>
 	</header>
 
-		{% block content %}
-		{% endblock %}
+	{% block content %}
+	{% endblock %}
 
 	<footer class="footer">
-		<p>Все новости и изображения на данном сайте созданы нейросетью и не имеют ничего общего с реальностью :) © by
-			Sazonov Pavel</p>
+		<div class="footer-alignment">
+			<p class="footer-alignleft">Все новости и изображения на данном сайте созданы нейросетью <br> и не имеют ничего общего с
+				реальностью :)</p>
+			<p class="footer-alignright">© by Sazonov Pavel</p>
+		</div>
 	</footer>
 </div>
 

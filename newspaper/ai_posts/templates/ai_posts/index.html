@@ -1,11 +1,15 @@
 {% extends "ai_posts/includes/base.html" %}
 {% load static %}
+{% load category_tags %}
+{% load post_tags %}
 
 {% block additional %}
 <link rel="stylesheet" href="{% static 'ai_posts/css/index.css' %}">
 {% endblock %}
 
 {% block content %}
+{% get_categories as categories %}
+
 <main class="content">
 	<div class="main-page-title">
 		<h2>ALT_stories</h2>
@@ -14,60 +18,16 @@
 	<div class="main-page">
 		<img src="{% static 'ai_posts/images/main_page_central.jpg' %}">
 		<ul>
+			{% for cat in categories %}
 			<li>
-				<h2>Новости </h2>
+				<h2>{{cat}}</h2>
 				<div class="post">
-					<h4>Заголовок</h4>
-					<p>Sample text. Click to select the text box. Click again or double click to start
-						editing the text . Sample text. Click to select the text box. Click again or double click to
-						start editing the text </p>
+					{% last-post cat as last %}
+					<h4>{{ last }}</h4>
+					<p style="text-align: justify;"> {{last.text | truncatechars:145}} </p>
 				</div>
 			</li>
-			<li>
-				<h2>Новости </h2>
-				<div class="post">
-					<h4>Заголовок</h4>
-					<p>Sample text. Click to select the text box. Click again or double click to start
-						editing the text . Sample text. Click to select the text box. Click again or double click to
-						start editing the text </p>
-				</div>
-			</li>
-			<li>
-				<h2>Новости </h2>
-				<div class="post">
-					<h4>Заголовок</h4>
-					<p>Sample text. Click to select the text box. Click again or double click to start
-						editing the text . Sample text. Click to select the text box. Click again or double click to
-						start editing the text </p>
-				</div>
-			</li>
-			<li>
-				<h2>Новости </h2>
-				<div class="post">
-					<h4>Заголовок</h4>
-					<p>Sample text. Click to select the text box. Click again or double click to start
-						editing the text . Sample text. Click to select the text box. Click again or double click to
-						start editing the text </p>
-				</div>
-			</li>
-			<li>
-				<h2>Новости </h2>
-				<div class="post">
-					<h4>Заголовок</h4>
-					<p>Sample text. Click to select the text box. Click again or double click to start
-						editing the text . Sample text. Click to select the text box. Click again or double click to
-						start editing the text </p>
-				</div>
-			</li>
-			<li>
-				<h2>Новости </h2>
-				<div class="post">
-					<h4>Заголовок</h4>
-					<p>Sample text. Click to select the text box. Click again or double click to start
-						editing the text . Sample text. Click to select the text box. Click again or double click to
-						start editing the text </p>
-				</div>
-			</li>
+			{% endfor %}
 		</ul>
 	</div>
 </main>

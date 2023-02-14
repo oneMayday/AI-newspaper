@@ -3,7 +3,7 @@
 {% load category_tags %}
 
 {% block additional %}
-<link rel="stylesheet" href="{% static 'ai_posts/css/about.css' %}"/>
+<link rel="stylesheet" href="{% static 'ai_posts/css/categories.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -11,12 +11,14 @@
 
 <main class="content">
 	<div class="categories-content">
-		<h3>Категории:</h3>
-		<ul>
-			{% for cat in categories %}
-			<li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
-			{% endfor %}
-		</ul>
+		<div class="categories-menu">
+			<h2>Категории:</h2>
+			<ul>
+				{% for cat in categories %}
+				<li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
 	</div>
 </main>
 {% endblock %}

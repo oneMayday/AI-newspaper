@@ -1,5 +1,6 @@
 {% extends "ai_posts/includes/base.html" %}
 {% load static %}
+{% load post_tags %}
 
 {% block additional %}
 <link rel="stylesheet" href="{% static 'ai_posts/css/all-posts.css' %}"/>
@@ -11,17 +12,22 @@
 
 		<h2>Категория → {{category}}</h2>
 		<ul>
-			{% for post in posts %}
-
-			<li>
-				<div class="texture_alignment">
-					<p class="alignleft">{{post.title}}</p>
-					<p class="alignright">Дата публикации: {{post.time_create}}</p>
-				</div>
-				<p class="text">{{post.text}}</p>
-			</li>
-
-			{% endfor %}
+			{% all-posts category.id as posts %}
+			{% if posts %}
+				{% for post in posts %}
+				<li>
+					<div class="texture_alignment">
+						<p class="alignleft">{{post.title}}</p>
+						<p class="alignright">Дата публикации: {{post.time_create}}</p>
+					</div>
+					<p class="text">{{post.text}}</p>
+				</li>
+				{% endfor %}
+			{% else %}
+				<li>
+					<p>Для данной категории пока нет публикаций</p>
+				</li>
+			{% endif %}
 		</ul>
 	</div>
 </main>

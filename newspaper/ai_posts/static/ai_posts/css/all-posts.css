@@ -1,6 +1,5 @@
 .all-posts-content {
-	background: linear-gradient(white, #b3b3b3);;
-	display: flex;
+	display: block;
 	height: 100%;
 	flex-direction: column;
 	padding-left: 115px;
@@ -10,6 +9,7 @@
 
 .all-posts-content h2 {
 	padding-bottom: 40px;
+	text-align: left;
 }
 
 .all-posts-content ul li {
@@ -17,6 +17,7 @@
 }
 
 .all-posts-content ul li .text {
+	display: hidden;
 	line-height: 25px;
 	border: 2px solid #828282;
 	border-bottom-left-radius: 10px;
@@ -35,6 +36,7 @@
 	float: right;
 	font-size: 14px;
 	padding-top: 5px;
+	padding-right: 10px;
 	}
 
 .texture_alignment {

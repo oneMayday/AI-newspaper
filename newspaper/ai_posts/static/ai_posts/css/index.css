@@ -49,3 +49,7 @@
 .post {
 	padding-top: 20px;
 }
+
+.post p {
+	text-align: justify;
+}

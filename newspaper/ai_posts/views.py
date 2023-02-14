@@ -27,5 +27,4 @@ def categories(request):
 
 def all_posts(request, cat_id):
     category = Category.objects.filter(pk=cat_id)[0]
-    posts = Post.objects.filter(post_category_id=cat_id)
-    return render(request, 'ai_posts/all_posts.html', {'category': category, 'posts': posts})
+    return render(request, 'ai_posts/all_posts.html', {'category': category})
