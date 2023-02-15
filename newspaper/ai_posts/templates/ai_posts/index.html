@@ -20,7 +20,7 @@
 		<ul>
 			{% for cat in categories %}
 			<li>
-				<h2>{{cat}}</h2>
+				<h2><a class="menu-style" href="{% url 'posts' cat.pk %}">{{cat}}</a></h2>
 				<div class="post">
 					{% last-post cat as last %}
 					<h4>{{ last }}</h4>

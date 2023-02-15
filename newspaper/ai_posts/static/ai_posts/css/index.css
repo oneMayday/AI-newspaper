@@ -53,3 +53,12 @@
 .post p {
 	text-align: justify;
 }
+
+a.menu-style {
+	color: #000000;
+	text-decoration: none;
+}
+
+a.menu-style:hover {
+	border-bottom: 2px solid;
+}

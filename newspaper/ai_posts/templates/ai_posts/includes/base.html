@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style='font-family: "Times New Roman"'>
 
 <head>
 	<meta charset="UTF-8">
@@ -9,6 +9,7 @@
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="{% static 'ai_posts/css/base.css' %}">
+
 	{% block additional %}{% endblock %}
 	<title>{{title}}</title>
 </head>
@@ -17,17 +18,11 @@
 
 <div class="page">
 	<header>
-		<a href="#" class="logo">LOGO</a>
+		<a href="{% url 'home' %}" class="logo">LOGO</a>
 		<nav>
 			<ul>
 				<li><a href="{% url 'home' %}">Главная</a></li>
-				<li><a href="{% url 'categories' %}">Категории</a>
-					<ul>
-						{% for cat in categories %}
-						<li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
-						{% endfor %}
-					</ul>
-				</li>
+				<li><a href="{% url 'categories' %}">Категории</a></li>
 				<li><a href="{% url 'mailing' %}">Рассылка</a></li>
 				<li><a href="{% url 'contacts' %}">Контакты</a></li>
 				<li><a href="{% url 'about' %}">О нас</a></li>
@@ -40,7 +35,8 @@
 
 	<footer class="footer">
 		<div class="footer-alignment">
-			<p class="footer-alignleft">Все новости и изображения на данном сайте созданы нейросетью <br> и не имеют ничего общего с
+			<p class="footer-alignleft">Все новости и изображения на данном сайте созданы нейросетью <br> и не имеют
+				ничего общего с
 				реальностью :)</p>
 			<p class="footer-alignright">© by Sazonov Pavel</p>
 		</div>

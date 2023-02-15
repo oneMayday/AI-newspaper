@@ -1,8 +1,7 @@
 from django.shortcuts import render, HttpResponse
 
 from .models import *
-
-from .models import *
+from .forms import *
 
 
 def index(request):
@@ -14,7 +13,14 @@ def contacts(request):
 
 
 def mailing(request):
-    return render(request, 'ai_posts/mailing.html', {'title': 'Рассылка'})
+    if request.method == 'POST':
+        mailing_form = Mailing(request.POST)
+        if mailing_form.is_valid():
+            print(mailing_form.cleaned_data)
+    else:
+        mailing_form = Mailing()
+
+    return render(request, 'ai_posts/mailing.html', {'title': 'Рассылка', 'mailing_form': mailing_form})
 
 
 def about(request):

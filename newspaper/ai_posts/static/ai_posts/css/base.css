@@ -1,24 +1,24 @@
 /* Общие настройки страницы */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    list-style: none;
-    text-decoration: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	list-style: none;
+	text-decoration: none;
 }
 
 body {
-    font-size: 16px;
-    color: #111;
+	font-size: 16px;
+	color: #111;
 }
 
 .page {
-    overflow: hidden;
-    display: grid;
-    grid-template-areas: "header" "content" "footer";
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
+	overflow: hidden;
+	display: grid;
+	grid-template-areas: "header" "content" "footer";
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
 }
 
 /* Стиль внешней оболочки контента */
@@ -62,10 +62,6 @@ header .logo {
 	transition: .5s;
 }
 
-header .logo:hover {
-	transform: scale(1.2);
-}
-
 /* Стили меню хедера */
 
 header nav ul li {
@@ -84,19 +80,6 @@ header nav ul li a:hover {
 	color: #fff;
 }
 
-nav ul li ul {
-	position: absolute;
-	left: 0;
-	width: 180px;
-	background: #fff;
-	display: none;
-	transition: .05s;
-}
-
-nav ul li:hover > ul {
-	display: initial;
-	}
-
 /* Стили футера */
 .footer {
 	margin-top: auto;
@@ -108,12 +91,12 @@ nav ul li:hover > ul {
 
 .footer-alignleft {
   float: left;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .footer-alignright {
 	float: right;
-	font-size: 16px;
+	font-size: 14px;
 	padding-top: 5px;
 	padding-right: 10px;
 	}

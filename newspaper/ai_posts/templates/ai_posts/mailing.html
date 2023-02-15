@@ -1,7 +1,16 @@
 {% extends "ai_posts/includes/base.html" %}
+{% load static %}
+
+{% block additional %}
+<link rel="stylesheet" href="{% static 'ai_posts/css/mailing.css' %}"/>
+{% endblock %}
 
 {% block content %}
-
-<p>Нужно сделать форму рассылки</p>
-
+<main class="mailing-content">
+	<form action="{% url 'mailing' %}" method="post">
+		{% csrf_token %}
+		{{mailing_form}}
+		<button type="submit">Подписаться</button>
+	</form>
+</main>
 {% endblock %}
