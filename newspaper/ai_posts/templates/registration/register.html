@@ -1,0 +1,9 @@
+{% extends "ai_posts/includes/base.html" %}
+
+{% block content %}
+<form action="{% url 'register' %}" method="POST">
+	{{form}}
+	{% csrf_token %}
+	<button type="submit">Регистрация</button>
+</form>
+{% endblock %}

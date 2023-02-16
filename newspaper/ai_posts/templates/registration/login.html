@@ -1,0 +1,12 @@
+{% extends "ai_posts/includes/base.html" %}
+
+{% block content %}
+{% if form.errors %}
+<p>{{ forms.errors.error }}</p>
+{% endif %}
+<form action="{% url 'login' %}" method="POST">
+	{{form}}
+	{% csrf_token %}
+	<button type="submit" class="btn btn-success">Войти</button>
+</form>
+{% endblock %}

@@ -1,7 +1,14 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+class User(AbstractUser):
+    pass
+
+
 class Category(models.Model):
+    """ Класс представления категорий """
+
     title = models.CharField(max_length=30, verbose_name='Категория')
 
     def __str__(self):
@@ -14,6 +21,8 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    """ Класс представления постов """
+
     title = models.CharField(max_length=30, verbose_name='Заголовок')
     text = models.TextField(max_length=1600, verbose_name='Текст статьи')
     time_create = models.DateField(auto_now_add=True, verbose_name='Дата создания')

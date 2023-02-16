@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'ai_posts.User'
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
 
 # Application definition
 
@@ -38,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'ai_posts.apps.AiPostsConfig',
+    'ai_posts',
 ]
 
 MIDDLEWARE = [
