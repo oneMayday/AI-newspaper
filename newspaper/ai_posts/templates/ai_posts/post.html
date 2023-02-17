@@ -1,2 +1,21 @@
 {% extends "ai_posts/includes/base.html" %}
+{% load static %}
 
+{% block additional %}
+<link rel="stylesheet" href="{% static 'ai_posts/css/post.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="content">
+	<div class="post-content">
+		<h2><a class="cat-head" href="{% url 'categories' %}">Категория</a> → <a class="cat-head" href="{% url 'posts' category.id %}"> {{ category }} </a> → Публикации</h2>
+		<div class="texture_alignment">
+			<p class="alignleft">{{ post.title }}</p>
+			<p class="alignright">Дата публикации: {{ post.time_create }}</p>
+		</div>
+		<p class="text">
+			{{ post.text }}
+		</p>
+	</div>
+</main>
+{% endblock %}

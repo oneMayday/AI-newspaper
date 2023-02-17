@@ -20,11 +20,13 @@
 		<ul>
 			{% for cat in categories %}
 			<li>
-				<h2><a class="menu-style" href="{% url 'posts' cat.pk %}">{{cat}}</a></h2>
+				<h2><a class="menu-style" href="{% url 'posts' cat.id %}">{{ cat }}</a></h2>
 				<div class="post">
 					{% last-post cat as last %}
-					<h4>{{ last }}</h4>
-					<p style="text-align: justify;"> {{last.text | truncatechars:145}} </p>
+					<a class="index-post" href="{% url 'post' cat.id last.id %}">
+						<h4>{{ last }}</h4>
+						<p style="text-align: justify;">{{ last.text | truncatechars:145 }}</p>
+					</a>
 				</div>
 			</li>
 			{% endfor %}

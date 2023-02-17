@@ -9,7 +9,7 @@
 <main class="mailing-content">
 	<form action="{% url 'mailing' %}" method="post">
 		{% csrf_token %}
-		{{mailing_form}}
+		{{ mailing_form }}
 		<button type="submit">Подписаться</button>
 	</form>
 </main>

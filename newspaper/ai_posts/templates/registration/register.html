@@ -1,9 +1,30 @@
 {% extends "ai_posts/includes/base.html" %}
+{% load static %}
+
+{% block additional %}
+<link rel="stylesheet" href="{% static 'ai_posts/css/register.css' %}"/>
+{% endblock %}
 
 {% block content %}
-<form action="{% url 'register' %}" method="POST">
-	{{form}}
-	{% csrf_token %}
-	<button type="submit">Регистрация</button>
-</form>
+<main class="register-content">
+	<h2>Регистрация</h2>
+	<form action="{% url 'register' %}" method="POST">
+		{% csrf_token %}
+
+			{% for field in form %}
+			<div class="form-group">
+				{{ field.label_tag }}
+				<div>{{ field }}</div>
+					{% if field.errors %}
+						{% for error in field.errors %}
+							<div class="alert alert-danger">
+								{{ error }}
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+			{% endfor %}
+		<button type="submit">Зарегистрироваться</button>
+	</form>
+</main>
 {% endblock %}

@@ -23,7 +23,7 @@ body {
 
 /* Стиль внешней оболочки контента */
 .content {
-	background: linear-gradient(white, #b3b3b3);
+	background: #fff;
 	display: flex;
 	height: 100%;
 	flex-direction: column;
@@ -47,7 +47,7 @@ header {
 	align-items: center;
 	padding: 0 8%;
 	border-bottom: 2px solid #000000;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 header .header-block {
@@ -78,15 +78,16 @@ header nav ul li a {
 header nav ul li a:hover {
 	background: #000;
 	color: #fff;
+	border-radius: 15px;
 }
 
 /* Стили футера */
 .footer {
 	margin-top: auto;
 	height: 70px;
-	background-color: #4b4d4b;
+	background-color: #1E1E1E;
 	padding: 20px;
-	color: #000;
+	color: #fff;
 }
 
 .footer-alignleft {

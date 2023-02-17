@@ -1,4 +1,4 @@
-.all-posts-content {
+.post-content {
 	display: block;
 	height: 100%;
 	flex-direction: column;
@@ -7,16 +7,12 @@
 	padding-bottom: 40px;
 }
 
-.all-posts-content h2 {
+.post-content h2 {
 	padding-bottom: 40px;
 	text-align: left;
 }
 
-.all-posts-content ul li {
-	padding-bottom: 30px;
-}
-
-.all-posts-content ul li .text {
+.post-content .text {
 	display: hidden;
 	line-height: 25px;
 	border: 2px solid #828282;

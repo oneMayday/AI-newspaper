@@ -10,17 +10,19 @@
 <main class="content">
 	<div class="all-posts-content">
 
-		<h2>Категория → {{category}}</h2>
+		<h2><a class="cat-head" href="{% url 'categories' %}">Категория</a> → {{ category }}</h2>
 		<ul>
 			{% all-posts category.id as posts %}
 			{% if posts %}
 				{% for post in posts %}
 				<li>
 					<div class="texture_alignment">
-						<p class="alignleft">{{post.title}}</p>
-						<p class="alignright">Дата публикации: {{post.time_create}}</p>
+						<p class="alignleft">{{ post.title }}</p>
+						<p class="alignright">Дата публикации: {{ post.time_create }}</p>
 					</div>
-					<p class="text">{{post.text}}</p>
+					<p class="text">
+						<a class="post" href="{% url 'post' category.id post.id %}">{{ post.text|truncatechars:500 }}</a>
+					</p>
 				</li>
 				{% endfor %}
 			{% else %}

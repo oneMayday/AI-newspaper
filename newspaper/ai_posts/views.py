@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.views import View
 from django.shortcuts import render, redirect
 
-from .models import Category
+from .models import Category, Post
 from .forms import UserCreateForm, Mailing
 
 
@@ -28,7 +28,7 @@ class Register(View):
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('home')
+            return redirect('account')
 
         context = {
             'form': form
@@ -38,10 +38,6 @@ class Register(View):
 
 def index(request):
     return render(request, 'ai_posts/index.html', {'title': 'Главная',})
-
-
-def contacts(request):
-    return render(request, 'ai_posts/contacts.html', {'title': 'Контакты'})
 
 
 def mailing(request):
@@ -60,9 +56,19 @@ def about(request):
 
 
 def categories(request):
-    return render(request, 'ai_posts/categories.html',)
+    return render(request, 'ai_posts/categories.html', {'title': 'Категории'})
 
 
 def all_posts(request, cat_id):
     category = Category.objects.filter(pk=cat_id)[0]
     return render(request, 'ai_posts/all_posts.html', {'category': category})
+
+
+def account(request, user_id):
+    return render(request, 'ai_posts/account.html', {'title': 'Личный кабинет'})
+
+
+def post(request, cat_id, post_id):
+    category = Category.objects.filter(pk=cat_id)[0]
+    post = Post.objects.filter(pk=post_id)[0]
+    return render(request, 'ai_posts/post.html', {'post': post, 'category': category})
