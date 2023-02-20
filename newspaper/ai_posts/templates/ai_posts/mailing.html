@@ -7,6 +7,7 @@
 
 {% block content %}
 <main class="mailing-content">
+	<h2>Рассылка</h2>
 	<form action="{% url 'mailing' %}" method="post">
 		{% csrf_token %}
 		{{ mailing_form }}

@@ -28,7 +28,7 @@ class Register(View):
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
-            return redirect('account')
+            return redirect('home')
 
         context = {
             'form': form
@@ -64,8 +64,8 @@ def all_posts(request, cat_id):
     return render(request, 'ai_posts/all_posts.html', {'category': category})
 
 
-def account(request, user_id):
-    return render(request, 'ai_posts/account.html', {'title': 'Личный кабинет'})
+def profile(request, user_id):
+    return render(request, 'ai_posts/profile.html', {'title': 'Личный кабинет'})
 
 
 def post(request, cat_id, post_id):

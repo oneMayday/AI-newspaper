@@ -1,0 +1,22 @@
+{% extends 'ai_posts/includes/base.html' %}
+{% load static %}
+
+{% block additional %}
+<link rel="stylesheet" href="{% static 'ai_posts/css/profile.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<main class="content">
+	<div class="profile-content">
+		<h2>Добро пожаловать, {{ user }}!</h2>
+		<ul>
+			<li><a href="{% url 'password_change' %}">Сменить пароль</a></li>
+			<li><a href="{% url 'mailing' %}">Подписаться на рассылку</a></li>
+			<li><a href="{% url 'logout' %}">Выйти</a></li>
+
+
+		</ul>
+	</div>
+</main>
+
+{% endblock %}

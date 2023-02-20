@@ -50,3 +50,7 @@ main form button[type=submit]:hover {
 	background: #1E1E1E;
 	color: #fff;
 }
+
+.form-error {
+	color: #fff;
+}

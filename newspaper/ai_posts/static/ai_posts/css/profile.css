@@ -1,0 +1,11 @@
+.profile-content {
+	display: block;
+	height: 100%;
+	width: 100%;
+	flex-direction: column;
+	align-item: left;
+	padding-left: 115px;
+	padding-right:115px;
+	padding-bottom: 40px;
+}
+

@@ -28,8 +28,7 @@ CATEGORIES = [(category.title, category.title) for category in Category.objects.
 
 class Mailing(forms.Form):
 	""" Форма подписки на рассылку"""
-	name = forms.CharField(label='Введите имя', max_length=120)
-	email = forms.EmailField(label='Введите email')
+
 	mailing_categories = forms.MultipleChoiceField(
 		label='Выберите категории',
 		choices=CATEGORIES,
