@@ -7,11 +7,15 @@
 
 {% block content %}
 <main class="mailing-content">
+	{% if user.is_authenticated %}
 	<h2>Рассылка</h2>
 	<form action="{% url 'mailing' %}" method="post">
 		{% csrf_token %}
 		{{ mailing_form }}
 		<button type="submit">Подписаться</button>
 	</form>
+	{% else %}
+	<h3>Для оформления рассылки необходимо залогиниться!</h3>
+	{% endif %}
 </main>
 {% endblock %}

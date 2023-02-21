@@ -11,6 +11,7 @@ User = get_user_model()
 
 class UserCreateForm(UserCreationForm):
 	""" Кастомная форма авторизации с полем email """
+
 	email = forms.EmailField(
 		label='Email',
 		max_length=254,
@@ -41,7 +42,7 @@ class UserCreateForm(UserCreationForm):
 
 # Формируем список кортежей в формате ("заголовок категории", "заголовок категории"),
 # для заполнения формы чекбокса (класс Mailings)
-CATEGORIES = [(category.title, category.title) for category in Category.objects.all()]
+CATEGORIES = [(category.pk, category) for category in Category.objects.all()]
 
 
 class Mailing(forms.Form):

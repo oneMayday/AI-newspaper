@@ -3,11 +3,12 @@ from django.views import View
 from django.shortcuts import render, redirect
 
 from .models import Category, Post
-from .forms import UserCreateForm, Mailing
+from .forms import UserCreateForm, Mailing, User
 
 
 class Register(View):
     """ Класс регистрации пользователя """
+
     template_name = 'registration/register.html'
 
     def get(self, request):
@@ -47,6 +48,14 @@ def mailing(request):
         mailing_form = Mailing(request.POST)
         if mailing_form.is_valid():
             print(mailing_form.cleaned_data)
+            print(request.user.email)
+            user = request.user
+            res = User.objects.get(pk=user.pk).mailings.all()
+            user.mailings.remove(*res)
+            for cat in mailing_form.cleaned_data.get('mailing_categories'):
+                user.mailings.add(cat)
+            res = User.objects.get(pk=user.pk).mailings.all()
+            print(res)
     else:
         mailing_form = Mailing()
     return render(request, 'ai_posts/mailing.html', {'title': 'Рассылка', 'mailing_form': mailing_form})

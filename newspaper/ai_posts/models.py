@@ -2,10 +2,6 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
-class User(AbstractUser):
-    pass
-
-
 class Category(models.Model):
     """ Класс представления категорий """
 
@@ -36,3 +32,9 @@ class Post(models.Model):
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
         ordering = ['time_create', 'title']
+
+
+class User(AbstractUser):
+    """ Класс представления юзеров """
+
+    mailings = models.ManyToManyField(Category)
