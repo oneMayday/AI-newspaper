@@ -13,6 +13,7 @@ class Register(View):
     def get(self, request):
         """ Представление формы """
         context = {
+            'title': 'Регистрация',
             'form': UserCreateForm(),
         }
         return render(request, self.template_name, context)
@@ -31,7 +32,7 @@ class Register(View):
             return redirect('home')
 
         context = {
-            'form': form
+            'form': form,
         }
         return render(request, self.template_name, context)
 
@@ -52,7 +53,7 @@ def mailing(request):
 
 
 def about(request):
-    return render(request, 'ai_posts/about.html', {'title': 'О нас'})
+    return render(request, 'ai_posts/about.html', {'title': 'О нас/Контакты'})
 
 
 def categories(request):
@@ -61,7 +62,7 @@ def categories(request):
 
 def all_posts(request, cat_id):
     category = Category.objects.filter(pk=cat_id)[0]
-    return render(request, 'ai_posts/all_posts.html', {'category': category})
+    return render(request, 'ai_posts/all_posts.html', {'title': category.title, 'category': category})
 
 
 def profile(request, user_id):
@@ -71,4 +72,4 @@ def profile(request, user_id):
 def post(request, cat_id, post_id):
     category = Category.objects.filter(pk=cat_id)[0]
     post = Post.objects.filter(pk=post_id)[0]
-    return render(request, 'ai_posts/post.html', {'post': post, 'category': category})
+    return render(request, 'ai_posts/post.html', {'title': post.title, 'post': post, 'category': category})

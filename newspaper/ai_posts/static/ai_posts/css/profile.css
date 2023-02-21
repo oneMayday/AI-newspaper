@@ -9,3 +9,17 @@
 	padding-bottom: 40px;
 }
 
+.profile-content ul {
+	padding-top: 20px;
+	line-height: 45px;
+	font-size: 20px;
+	color: #000;
+}
+
+.profile-content ul li a {
+	color: #000;
+}
+
+.profile-content ul li a:hover {
+	border-bottom: 2px solid #000;
+}

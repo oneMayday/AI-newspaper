@@ -25,12 +25,10 @@
 }
 
 /* Стили окна контактов */
-.contacts-content {
-	display: flex;
-	height: 100%;
-	flex-direction: column;
-	flex-wrap: wrap;
-	padding-left: 115px;
+.contacts {
+	display: absolute;
+	position: left;
+	height: 20%;
 	padding-top: 40px;
 	padding-bottom: 40px;
 }

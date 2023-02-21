@@ -1,11 +1,12 @@
-.change-password-content {
-	display: block;
+/* Стили окна регистрации, логина и смены пароля */
+.auth-login-content {
+	background: #fff;
+	display: flex;
 	height: 100%;
-	width: 100%;
 	flex-direction: column;
-	align-item: left;
-	padding-left: 115px;
-	padding-right:115px;
+	align-items: center;
+	flex-wrap: wrap;
+	padding-top: 30px;
 	padding-bottom: 40px;
 }
 
@@ -13,16 +14,19 @@ main form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 300px;
+	width: 250px;
 	font-size: 16px;
 	border: 2px solid #000;
 	border-radius: 20px;
 	padding: 15px;
 }
+ main h2 {
+ 	margin-bottom: 20px;
+ }
 
 main form input{
 	margin-top: 5px;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	font-size: 16px;
 	padding-left: 10px;
 	height: 35px;
@@ -34,7 +38,6 @@ main form button[type=submit] {
 	background: #000;
 	color: #fff;
 	margin-top: 15px;
-
 	font-size: 16px;
 	width: 180px;
 	height: 30px;
@@ -45,4 +48,19 @@ main form button[type=submit] {
 main form button[type=submit]:hover {
 	background: #1E1E1E;
 	color: #fff;
+}
+
+.forgot {
+	color: #000;
+}
+
+.forgot:hover {
+	color: #3b3939;
+}
+
+.error {
+	font-size: 14px;
+	padding-left: 5px;
+	padding-bottom: 10px;
+	color: #f00;
 }

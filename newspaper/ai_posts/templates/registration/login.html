@@ -1,25 +1,19 @@
 {% extends "ai_posts/includes/base.html" %}
-{% load static %}
-
-{% block additional %}
-<link rel="stylesheet" href="{% static 'ai_posts/css/login.css' %}"/>
-{% endblock %}
 
 {% block content %}
-<main class="login-content">
+<main class="auth-login-content">
 	<h2>Вход</h2>
 	<form action="{% url 'login' %}" method="POST">
 		{% csrf_token %}
-			{% for field in form %}
-			<div class="form-group">
-				{{ field.label_tag }}
-				<div>{{ field }}</div>
-			</div>
-			{% endfor %}
-		<div class="form-error">{{ form.non_field_errors }}</div>
-		<a href="{% url 'password_reset' %}">Забыли пароль?</a>
+		{% for field in form %}
+		<div>
+			{{ field.label_tag }}
+			<div>{{ field }}</div>
+		</div>
+		{% endfor %}
+		<div class="error">{{ form.non_field_errors }}</div>
+		<a class="forgot" href="{% url 'password_reset' %}">Забыли пароль?</a>
 		<button type="submit">Войти</button>
 	</form>
-
 </main>
 {% endblock %}
