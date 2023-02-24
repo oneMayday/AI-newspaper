@@ -13,6 +13,10 @@
 	padding-bottom: 20px;
 }
 
+main h2 {
+	margin-bottom: 2px;
+}
+
 main form {
 	display: flex;
 	flex-direction: column;
@@ -25,13 +29,12 @@ main form {
 }
 
 main form input{
-display: flex;
-flex-direction: row;
+	display: block;
+	margin: 0;
 	font-size: 16px;
 	height: 25px;
 	border: 2px solid #000;
 	border-radius: 7px;
-	align-items: center;
 }
 
 main form button[type=submit] {

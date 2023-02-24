@@ -3,11 +3,14 @@ from django.db import models
 
 
 class Category(models.Model):
-    """ Класс представления категорий """
+    """ News categories model. """
 
     title = models.CharField(max_length=30, verbose_name='Категория')
 
     def __str__(self):
+        return self.title
+
+    def __repr__(self):
         return self.title
 
     class Meta:
@@ -17,7 +20,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    """ Класс представления постов """
+    """ Newspaper posts model. """
 
     title = models.CharField(max_length=30, verbose_name='Заголовок')
     text = models.TextField(max_length=1600, verbose_name='Текст статьи')
@@ -28,6 +31,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def __repr__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
@@ -35,6 +41,6 @@ class Post(models.Model):
 
 
 class User(AbstractUser):
-    """ Класс представления юзеров """
+    """ Custom user model with an additional field - 'mailings' - mailing list. """
 
     mailings = models.ManyToManyField(Category)

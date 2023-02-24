@@ -10,12 +10,12 @@ User = get_user_model()
 
 
 class UserCreateForm(UserCreationForm):
-	""" Кастомная форма авторизации с полем email """
+	""" Custom authorization form with email field """
 
 	email = forms.EmailField(
 		label='Email',
 		max_length=254,
-		widget=forms.EmailInput(attrs={'autocomplete': 'email'})
+		widget=forms.EmailInput(attrs={'autocomplete': 'email'}),
 	)
 
 	error_messages = {
@@ -28,7 +28,7 @@ class UserCreateForm(UserCreationForm):
 		fields = ('username', 'email')
 
 	def clean_email(self):
-		# Обработка уникальности email
+		# Uniqueness processing mail
 		email = self.cleaned_data.get('email')
 		username = self.cleaned_data.get('username')
 		if email and User.objects.filter(email=email).exclude(username=username).exists():
@@ -40,13 +40,12 @@ class UserCreateForm(UserCreationForm):
 		return email
 
 
-# Формируем список кортежей в формате ("заголовок категории", "заголовок категории"),
-# для заполнения формы чекбокса (класс Mailings)
+# Forming list of tuples in format("category pk", "category title") for completion checkbox form
 CATEGORIES = [(category.pk, category) for category in Category.objects.all()]
 
 
 class Mailing(forms.Form):
-	""" Форма подписки на рассылку"""
+	""" Mailing form"""
 
 	mailing_categories = forms.MultipleChoiceField(
 		label='Выберите категории',

@@ -9,8 +9,9 @@
 <main class="content">
 	<div class="profile-content">
 		<h2>Добро пожаловать, {{ user }}!</h2>
+		<h4>Ваш email: {{ user.email }}</h4>
 		<ul>
-			<li><a href="{% url 'password_change' %}">Сменить пароль</a></li>
+			<li><a href="{% url 'password_change' %}">Изменить пароль</a></li>
 			<li><a href="{% url 'mailing' %}">Подписаться на рассылку</a></li>
 			<li><a href="{% url 'logout' %}">Выйти</a></li>
 		</ul>
