@@ -1,3 +1,4 @@
+import openai
 from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail, EmailMessage, BadHeaderError
 from django.views import View
@@ -112,3 +113,7 @@ def post(request, cat_id, post_id):
         'category': category,
     }
     return render(request, 'ai_posts/post.html', context)
+
+
+def chat_gpt_request():
+    comletion = openai.Completion.create()
