@@ -1,11 +1,11 @@
-import openai
 from django.contrib.auth import authenticate, login
-from django.core.mail import send_mail, EmailMessage, BadHeaderError
 from django.views import View
 from django.shortcuts import render, redirect
 
 from .models import Category, Post
-from .forms import UserCreateForm, Mailing, User
+from .forms import UserCreateForm, Mailing
+from .services import get_user_mailing_data
+from .tasks import send_mailing_confirm
 
 
 class Register(View):
@@ -46,31 +46,13 @@ def mailing(request):
     if request.method == 'POST':
         mailing_form = Mailing(request.POST)
         if mailing_form.is_valid():
-            # print(mailing_form.cleaned_data)
-            # print(request.user.email)
             # Get all users mailings and clear it
             user = request.user
-            all_user_mailings = User.objects.get(pk=user.pk).mailings.all()
-            user.mailings.remove(*all_user_mailings)
-            a = []
-            for cat in mailing_form.cleaned_data.get('mailing_categories'):
-                user.mailings.add(cat)
 
-            res = User.objects.get(pk=user.pk).mailings.all()
-            res_text = [elem.title for elem in res]
-            message_text = ', '.join(res_text)
-            print(res_text)
-            print(a)
-            subject = 'Пробное сообщение'
-            message = f'Вы подписались на категории: {message_text}'
-            email = EmailMessage(subject, message, to=['def@domain.com'])
-            email.send()
+            # Get user email end mailing list and send confirm email
+            user_email, mailing_list = get_user_mailing_data(user, mailing_form)
+            send_mailing_confirm.delay(user_email, mailing_list)
             done = 'Подписка успешно оформлена!'
-            # try:
-            #     send_mail(subject, message, 'webmaster@localhost', ['webmaster@localhost'])
-            # except BadHeaderError:
-            #     return HttpResponse('Найден некорректный заголовок')
-            # return redirect('home')
     else:
         mailing_form = Mailing()
 
@@ -113,7 +95,3 @@ def post(request, cat_id, post_id):
         'category': category,
     }
     return render(request, 'ai_posts/post.html', context)
-
-
-def chat_gpt_request():
-    comletion = openai.Completion.create()
