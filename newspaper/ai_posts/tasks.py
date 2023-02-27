@@ -42,7 +42,7 @@ def update_news():
 		new_post = Post(
 			title=post_title,
 			text=post_text,
-			post_category=category.pk,
+			post_category=category,
 			is_published=False
 		)
 		new_post.save()
