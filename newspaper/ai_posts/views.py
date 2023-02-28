@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.views import View
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Category, Post
 from .forms import UserCreateForm, Mailing
@@ -23,6 +23,7 @@ class Register(View):
 
     def post(self, request):
         """ Processing entering data """
+
         form = UserCreateForm(request.POST)
 
         # Checking validation: if validation is True - add user to db, if False - return user to completion form page
@@ -42,6 +43,7 @@ class Register(View):
 
 def mailing(request):
     """ Mailing with a category choice. """
+
     done = ''
     if request.method == 'POST':
         mailing_form = Mailing(request.POST)
@@ -77,7 +79,7 @@ def categories(request):
 
 
 def all_posts(request, cat_id):
-    category = Category.objects.filter(pk=cat_id)[0]
+    category = get_object_or_404(Category, pk=cat_id)
     return render(request, 'ai_posts/all_posts.html', {'title': category.title, 'category': category})
 
 
@@ -86,8 +88,8 @@ def profile(request, user_id):
 
 
 def post(request, cat_id, post_id):
-    category = Category.objects.filter(pk=cat_id)[0]
-    target_post = Post.objects.filter(pk=post_id)[0]
+    category = get_object_or_404(Category, pk=cat_id)
+    target_post = get_object_or_404(Post, pk=post_id)
 
     context = {
         'title': target_post.title,
