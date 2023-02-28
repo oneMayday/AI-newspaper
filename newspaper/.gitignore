@@ -1,8 +1,0 @@
-
-.idea/
-..venv/
-__pycache__/
-ai_posts/migrations/
-
-db.sqlite3
-.env
