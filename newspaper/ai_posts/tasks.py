@@ -13,7 +13,6 @@ from .services import get_new_posts
 def send_mailing_confirm(user_email, mailing_list):
 	""" Sends email when the mailing form has been submitted. """
 
-	sleep(5)
 	send_mail(
 			'Подписка оформлена (ALT_stories)',
 			f'Вы подписались на категории: {mailing_list}',
@@ -34,7 +33,7 @@ def send_mailing_update_news(user_email):
 	)
 
 
-@shared_task()
+@shared_task(name='update_news')
 def update_news():
 	""" Generate new posts with a chatGPT"""
 
@@ -50,10 +49,9 @@ def update_news():
 			is_published=False
 		)
 		new_post.save()
-		sleep(120)
 
 
-@shared_task()
+@shared_task(name='update_news_mailing')
 def update_news_mailing():
 	""" Check new posts in categories, send emails for all mailed user. """
 

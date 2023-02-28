@@ -1,4 +1,5 @@
 import os
+import openai
 
 from pathlib import Path
 from decouple import config
@@ -8,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Secret keys
 SECRET_KEY = config('SECRET_KEY')
-OPEN_AI_KEY = config('OPEN_AI_KEY')
+openai.api_key = config('OPEN_AI_KEY')
 
 # Debug settings
 DEBUG = True

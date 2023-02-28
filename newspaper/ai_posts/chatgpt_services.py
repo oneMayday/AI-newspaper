@@ -1,9 +1,6 @@
 import openai
 
-# from newspaper.newspaper.settings import OPEN_AI_KEY
-#
-#
-# openai.api_key = OPEN_AI_KEY
+from django.conf import settings
 
 
 def chatgpt_get_post_header(category):
@@ -11,7 +8,7 @@ def chatgpt_get_post_header(category):
 
 	completion = openai.Completion.create(
 		engine='text-davinci-003',
-		prompt=f'Придумай заголовок новости о {category.title}',
+		prompt=f'Придумай заголовок новости о {category.title}. Ограничение - 20 символов.',
 		max_tokens=1024,
 		temperature=0.5,
 		top_p=1
@@ -26,8 +23,8 @@ def chatgpt_get_post_text(category):
 
 	completion = openai.Completion.create(
 		engine='text-davinci-003',
-		prompt=f'Напиши статью о {category.title} на 1500 символов',
-		max_tokens=1024,
+		prompt=f'Напиши выдуманную статью о {category.title} на 1500 символов',
+		max_tokens=4000,
 		temperature=0.5,
 		top_p=1,
 	)
