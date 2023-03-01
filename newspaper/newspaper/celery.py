@@ -1,6 +1,6 @@
 import os
 
-from celery import Celery, shared_task
+from celery import Celery
 from celery.schedules import crontab
 
 
@@ -16,13 +16,16 @@ def debug_task(self):
     print(f'Request: {self.request!r}')
 
 
+app.conf.timezone = 'Asia/Baku'
+
+# Periodical tasks, based in tasks.py
 app.conf.beat_schedule = {
     'Update_news_with_chatGPT': {
         'task': 'update_news',
-        'schedule': crontab(hour=5)
+        'schedule': crontab(minute=25, hour=12),
     },
     'Update_db_and_mailing': {
         'task': 'update_news_mailing',
-        'shedule': crontab(hour=6, minute=30)
+        'schedule': crontab(minute=35, hour=12),
     }
 }

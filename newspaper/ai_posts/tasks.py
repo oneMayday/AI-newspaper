@@ -40,15 +40,18 @@ def update_news():
 	categories = Category.objects.all()
 
 	for category in categories:
-		post_title, post_text = chatgpt_get_post(category)
+		try:
+			post_title, post_text = chatgpt_get_post(category)
 
-		new_post = Post(
-			title=post_title,
-			text=post_text,
-			post_category=category,
-			is_published=False
-		)
-		new_post.save()
+			new_post = Post(
+				title=post_title,
+				text=post_text,
+				post_category=category,
+				is_published=True
+			)
+			new_post.save()
+		except Exception:
+			continue
 
 
 @shared_task(name='update_news_mailing')
@@ -62,9 +65,12 @@ def update_news_mailing():
 		if get_new_posts(category):
 			users = User.objects.filter(mailings__id=category.pk)
 			if users:
-				for user in users:
-					if user not in users_for_mailing:
-						send_mailing_update_news(user.email)
-						users_for_mailing.append(user)
-					else:
-						continue
+				try:
+					for user in users:
+						if user not in users_for_mailing:
+							send_mailing_update_news(user.email)
+							users_for_mailing.append(user)
+						else:
+							continue
+				except ConnectionError:
+					continue
