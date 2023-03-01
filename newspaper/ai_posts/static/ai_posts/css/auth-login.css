@@ -16,7 +16,7 @@ main form {
 	align-items: center;
 	width: 250px;
 	font-size: 16px;
-	border: 2px solid #000;
+	border: 2px solid #1E1E1E;
 	border-radius: 20px;
 	padding: 15px;
 }
@@ -30,32 +30,32 @@ main form input{
 	font-size: 16px;
 	padding-left: 10px;
 	height: 35px;
-	border: 2px solid #000;
+	border: 2px solid #1E1E1E;
 	border-radius: 7px;
 }
 
 main form button[type=submit] {
-	background: #000;
+	background: #1E1E1E;
 	color: #fff;
 	margin-top: 15px;
 	font-size: 16px;
 	width: 180px;
 	height: 30px;
-	border: 2px solid #000;
+	border: 2px solid #1E1E1E;
 	border-radius: 15px;
 }
 
 main form button[type=submit]:hover {
-	background: #1E1E1E;
+	background: #424242;
 	color: #fff;
 }
 
 .forgot {
-	color: #000;
+	color: #1E1E1E;
 }
 
 .forgot:hover {
-	color: #3b3939;
+	color: #828282;
 }
 
 .error {

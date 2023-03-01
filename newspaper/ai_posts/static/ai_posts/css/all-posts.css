@@ -28,7 +28,7 @@
 }
 
 .post {
-	color: #000;
+	color: #1E1E1E;
 	text-decoration: none;
 }
 
@@ -60,9 +60,41 @@
 }
 
 .cat-head {
-	color: #000;
+	color: #1E1E1E;
 }
 
 .cat-head:hover {
-	border-bottom: 2px solid #000;
+	border-bottom: 2px solid #1E1E1E;
+}
+
+.pagination {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	color: #1E1E1E;
+	text_decoration: None;
+	text-align: center;
+}
+
+.pagination .one-step-link {
+	height: 30px;
+	width: 30px;
+	padding-top: 4px;
+	margin: 5px;
+	border: 2px solid #1E1E1E;
+	border-radius: 7px;
+}
+
+.aim {
+color: #1E1E1E;
+}
+
+.aim:hover {
+	background: #1E1E1E;
+	color: #fff;
+}
+
+.active {
+	background: #1E1E1E;
+	color: #fff;
 }

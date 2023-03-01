@@ -1,6 +1,5 @@
 {% extends "ai_posts/includes/base.html" %}
 {% load static %}
-{% load post_tags %}
 
 {% block additional %}
 <link rel="stylesheet" href="{% static 'ai_posts/css/all-posts.css' %}"/>
@@ -11,10 +10,10 @@
 	<div class="all-posts-content">
 
 		<h2><a class="cat-head" href="{% url 'categories' %}">Категория</a> → {{ category }}</h2>
-		<ul>
-			{% all-posts category.id as posts %}
-			{% if posts %}
-				{% for post in posts %}
+
+		{% if page_obj %}
+			<ul>
+				{% for post in page_obj %}
 				<li>
 					<div class="texture_alignment">
 						<p class="alignleft">{{ post.title }}</p>
@@ -25,12 +24,33 @@
 					</p>
 				</li>
 				{% endfor %}
-			{% else %}
-				<li>
-					<p>Для данной категории пока нет публикаций</p>
-				</li>
-			{% endif %}
-		</ul>
+
+
+			</ul>
+			<div class="pagination">
+					{% if page_obj.has_previous %}
+            			<a class="one-step-link aim" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+					{% else %}
+						<a class="one-step-link">&laquo;</a>
+        			{% endif %}
+
+					{% for page in page_obj.paginator.page_range %}
+						{% if page == page_obj.number %}
+						<a class="one-step-link active" href="?page={{ page }}">{{ page }}</a>
+						{% elif page >= page_obj.number|add:-1 and page <= page_obj.number|add:1  %}
+						<a class="one-step-link aim" href="?page={{ page }}">{{ page }}</a>
+						{% endif %}
+					{% endfor %}
+
+					{% if page_obj.has_next %}
+            			<a class="one-step-link aim" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+					{% else %}
+						<a class="one-step-link">&raquo;</a>
+        			{% endif %}
+			</div>
+		{% else %}
+			<p>Для данной категории пока нет публикаций</p>
+		{% endif %}
 	</div>
 </main>
 

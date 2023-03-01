@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.core.paginator import Paginator
 from django.views import View
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -62,7 +63,6 @@ def mailing(request):
                'done': done,
                'mailing_form': mailing_form,
                }
-
     return render(request, 'ai_posts/mailing.html', context)
 
 
@@ -80,7 +80,19 @@ def categories(request):
 
 def all_posts(request, cat_id):
     category = get_object_or_404(Category, pk=cat_id)
-    return render(request, 'ai_posts/all_posts.html', {'title': category.title, 'category': category})
+    posts = Post.objects.filter(post_category_id=cat_id, is_published=True).order_by('-time_create')
+
+    # Pagination properties
+    posts_paginator = Paginator(posts, 6)
+    page_number = request.GET.get('page')
+    page_obj = posts_paginator.get_page(page_number)
+
+    context = {
+                'title': category.title,
+                'category': category,
+                'page_obj': page_obj
+    }
+    return render(request, 'ai_posts/all_posts.html', context)
 
 
 def profile(request, user_id):
@@ -92,8 +104,8 @@ def post(request, cat_id, post_id):
     target_post = get_object_or_404(Post, pk=post_id)
 
     context = {
-        'title': target_post.title,
-        'post': target_post,
-        'category': category,
+                'title': target_post.title,
+                'post': target_post,
+                'category': category,
     }
     return render(request, 'ai_posts/post.html', context)
