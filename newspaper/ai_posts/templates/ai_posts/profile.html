@@ -11,11 +11,22 @@
 		<h2>Добро пожаловать, {{ user }}!</h2>
 		<h4>Ваш email: {{ user.email }}</h4>
 		<ul>
+			<li>
+				<li>
+					Рассылка:
+				<ul>
+					{% if mailing_list %}
+						<li>Вы подписаны на категории:  {{ mailing_list }}.</li>
+						<li><a href="{% url 'mailing' %}">Сменить категории</a></li>
+						<li><a href="{% url 'clear_mailings' user.id%}">Отписаться от рассылки</a></li>
+					{% else %}
+						<li><a href="{% url 'mailing' %}">Подписаться на рассылку</a></li>
+					{% endif%}
+				</ul>
+			</li>
 			<li><a href="{% url 'password_change' %}">Изменить пароль</a></li>
-			<li><a href="{% url 'mailing' %}">Подписаться на рассылку</a></li>
 			<li><a href="{% url 'logout' %}">Выйти</a></li>
 		</ul>
 	</div>
 </main>
-
 {% endblock %}

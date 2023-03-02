@@ -4,8 +4,8 @@ from django.views import View
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Category, Post
-from .forms import UserCreateForm, Mailing
-from .services import get_user_mailing_data
+from .forms import UserCreateForm, Mailing, User
+from .services import get_user_mailing_data, clear_user_mailings
 from .tasks import send_mailing_confirm
 
 
@@ -96,7 +96,21 @@ def all_posts(request, cat_id):
 
 
 def profile(request, user_id):
-    return render(request, 'ai_posts/profile.html', {'title': 'Личный кабинет'})
+    user = User.objects.get(pk=user_id)
+    user_email, mailing_list = get_user_mailing_data(user)
+
+    context = {
+                'title': 'Личный кабинет',
+                'user_email': user_email,
+                'mailing_list': mailing_list
+    }
+    return render(request, 'ai_posts/profile.html', context)
+
+
+def clear_mailings(request, user_id):
+    user = User.objects.get(pk=user_id)
+    clear_user_mailings(user)
+    return redirect('account', user_id)
 
 
 def post(request, cat_id, post_id):

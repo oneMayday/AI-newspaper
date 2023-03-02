@@ -4,14 +4,16 @@ from .forms import User
 from .models import Post
 
 
-def get_user_mailing_data(user, mailing_form):
-	""" Remove old user's mailings from db, add new mailings. """
+def get_user_mailing_data(user, mailing_form=None):
+	""" Remove old user's mailings from db, add new mailings or return user mailing list. """
 
 	user_email = user.email
-	clear_user_mailings(user)
 
-	for cat in mailing_form.cleaned_data.get('mailing_categories'):
-		user.mailings.add(cat)
+	if mailing_form:
+		clear_user_mailings(user)
+
+		for cat in mailing_form.cleaned_data.get('mailing_categories'):
+			user.mailings.add(cat)
 
 	# Get new mailings and return it
 	new_mailings = User.objects.get(pk=user.pk).mailings.all()
