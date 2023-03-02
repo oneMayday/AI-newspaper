@@ -42,9 +42,30 @@ class Register(View):
         return render(request, self.template_name, context)
 
 
-def mailing(request):
-    """ Mailing with a category choice. """
+def all_posts(request, cat_slug):
+    category = get_object_or_404(Category, slug=cat_slug)
+    posts = Post.objects.filter(post_category_id=category.id, is_published=True).order_by('-time_create')
 
+    # Pagination properties
+    posts_paginator = Paginator(posts, 6)
+    page_number = request.GET.get('page')
+    page_obj = posts_paginator.get_page(page_number)
+
+    context = {
+                'title': category.title,
+                'category': category,
+                'page_obj': page_obj
+    }
+    return render(request, 'ai_posts/all_posts.html', context)
+
+
+def clear_mailings(request, user_id):
+    user = User.objects.get(pk=user_id)
+    clear_user_mailings(user)
+    return redirect('account', user_id)
+
+
+def mailing(request):
     done = ''
     if request.method == 'POST':
         mailing_form = Mailing(request.POST)
@@ -66,33 +87,16 @@ def mailing(request):
     return render(request, 'ai_posts/mailing.html', context)
 
 
-def index(request):
-    return render(request, 'ai_posts/index.html', {'title': 'Главная'})
-
-
-def about(request):
-    return render(request, 'ai_posts/about.html', {'title': 'О нас/Контакты'})
-
-
-def categories(request):
-    return render(request, 'ai_posts/categories.html', {'title': 'Категории'})
-
-
-def all_posts(request, cat_id):
-    category = get_object_or_404(Category, pk=cat_id)
-    posts = Post.objects.filter(post_category_id=cat_id, is_published=True).order_by('-time_create')
-
-    # Pagination properties
-    posts_paginator = Paginator(posts, 6)
-    page_number = request.GET.get('page')
-    page_obj = posts_paginator.get_page(page_number)
+def post(request, cat_slug, post_id):
+    category = get_object_or_404(Category, slug=cat_slug)
+    target_post = get_object_or_404(Post, pk=post_id)
 
     context = {
-                'title': category.title,
+                'title': target_post.title,
+                'post': target_post,
                 'category': category,
-                'page_obj': page_obj
     }
-    return render(request, 'ai_posts/all_posts.html', context)
+    return render(request, 'ai_posts/post.html', context)
 
 
 def profile(request, user_id):
@@ -107,19 +111,13 @@ def profile(request, user_id):
     return render(request, 'ai_posts/profile.html', context)
 
 
-def clear_mailings(request, user_id):
-    user = User.objects.get(pk=user_id)
-    clear_user_mailings(user)
-    return redirect('account', user_id)
+def index(request):
+    return render(request, 'ai_posts/index.html', {'title': 'Главная'})
 
 
-def post(request, cat_id, post_id):
-    category = get_object_or_404(Category, pk=cat_id)
-    target_post = get_object_or_404(Post, pk=post_id)
+def about(request):
+    return render(request, 'ai_posts/about.html', {'title': 'О нас/Контакты'})
 
-    context = {
-                'title': target_post.title,
-                'post': target_post,
-                'category': category,
-    }
-    return render(request, 'ai_posts/post.html', context)
+
+def categories(request):
+    return render(request, 'ai_posts/categories.html', {'title': 'Категории'})

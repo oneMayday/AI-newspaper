@@ -6,6 +6,7 @@ class Category(models.Model):
     """ News categories model. """
 
     title = models.CharField(max_length=30, verbose_name='Категория')
+    slug = models.SlugField(max_length=30, unique=True, null=True, verbose_name="Slug")
 
     def __str__(self):
         return self.title

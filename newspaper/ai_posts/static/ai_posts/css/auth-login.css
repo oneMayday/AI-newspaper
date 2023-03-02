@@ -46,7 +46,7 @@ main form button[type=submit] {
 }
 
 main form button[type=submit]:hover {
-	background: #424242;
+	background: #000;
 	color: #fff;
 }
 

@@ -9,7 +9,7 @@
 <main class="content">
 	<div class="post-content">
 		<h2><a class="cat-head" href="{% url 'categories' %}">Категория</a> →
-			<a class="cat-head" href="{% url 'posts' category.id %}"> {{ category }} </a> →
+			<a class="cat-head" href="{% url 'all_posts' category.slug %}"> {{ category }} </a> →
 			{{ post.title  }}</h2>
 		<div class="texture_alignment">
 			<p class="alignleft">{{ post.title }}</p>

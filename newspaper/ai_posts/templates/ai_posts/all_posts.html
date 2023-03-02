@@ -20,7 +20,7 @@
 						<p class="alignright">Дата публикации: {{ post.time_create }}</p>
 					</div>
 					<p class="text">
-						<a class="post" href="{% url 'post' category.id post.id %}">{{ post.text|truncatechars:500 }}</a>
+						<a class="post" href="{% url 'post' category.slug post.id %}">{{ post.text|truncatechars:500 }}</a>
 					</p>
 				</li>
 				{% endfor %}

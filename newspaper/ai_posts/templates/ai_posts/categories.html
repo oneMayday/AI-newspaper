@@ -11,11 +11,22 @@
 
 <main class="content">
 	<div class="categories-content">
+		<h2>Категории:</h2>
 		<div class="categories-menu">
-			<h2>Категории:</h2>
 			<ul>
 				{% for cat in categories %}
-				<li><a href="{% url 'posts' cat.pk %}">{{cat}}</a></li>
+				<li>
+					<a href="{% url 'all_posts' cat.slug %}">
+					<div class="cat-header">
+						{{cat}}
+					</div>
+					<div class="cat-image">
+						{% with 'ai_posts/images/'|add:cat.slug|add:'.png' as image_static %}
+						<img src="{% static image_static %}">
+						{% endwith %}
+					</div>
+					</a>
+				</li>
 				{% endfor %}
 			</ul>
 		</div>

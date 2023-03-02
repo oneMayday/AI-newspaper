@@ -2,23 +2,48 @@
 	display: block;
 	height: 100%;
 	width: 100%;
-	flex-direction: column;
 	padding-left: 115px;
-	padding-right:115px;
-	padding-bottom: 40px;
+	padding-right: 115px;
+	margin-bottom: 50px;
+}
+
+.categories-menu {
+	height: 100%;
 }
 
 .categories-content ul {
-	padding-left: 40px;
-	line-height: 45px;
+	height: 100%;
+	widht: 900px;
 	font-size: 20px;
-	color: #000;
+	line-height: 45px;
 }
 
-.categories-content ul li a {
-	color: #000;
+.categories-content ul li {
+	height: 300px;
+	width: 408px;
+	float: left;
+	background: #1E1E1E;
+	border: 2px solid #1E1E1E;
+	border-radius: 20px;
+	text-align: center;
+	margin: 10px;
 }
 
-.categories-content ul li a:hover {
-	border-bottom: 2px solid #000;
+.cat-header {
+	height: 15%;
+	border-bottom: 2px solid #1E1E1E;
+	text-align: center;
+	color: #fff;
+}
+
+.cat-image {
+	height: 85%;
+	width: 100%;
+}
+
+.cat-image img {
+	height: 100%;
+	width: 100%;
+	border-bottom-left-radius: 17px;
+	border-bottom-right-radius: 17px;
 }

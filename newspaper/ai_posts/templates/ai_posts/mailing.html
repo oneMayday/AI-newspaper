@@ -11,7 +11,10 @@
 		<h2>Рассылка</h2>
 		<form action="{% url 'mailing' %}" method="post">
 			{% csrf_token %}
-			{{ mailing_form }}
+			<h4>Выберите категории:</h4>
+			{% for label in mailing_form %}
+			{{ label }}
+			{% endfor %}
 			<button type="submit">Подписаться</button>
 		</form>
 	{% elif user.is_authenticated and done %}
