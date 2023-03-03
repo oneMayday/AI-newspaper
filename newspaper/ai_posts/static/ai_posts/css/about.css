@@ -2,55 +2,71 @@
 	border-top: 1px #000000;
 	border-bottom: 1px #000000;
 	display: flex;
-	height: 300px;
-	width: 70%;
-	align-items: top;
-	padding-bottom: 40px;
-}
-
-.about-content img {
-	width: 250px;
-	height: 250px;
-	align: left;
-	border-radius: 50%;
-}
-
-.about-content p {
-	display: block;
-	padding-top: 50px;
-	padding-left: 50px;
-	font-size: 18px;
-	line-height: 35px;
-	text-indent: 35px;
-}
-
-/* Стили окна контактов */
-.contacts {
-	display: absolute;
-	position: left;
-	height: 20%;
-	padding-top: 40px;
-	padding-bottom: 40px;
-}
-
-.contacts-content .contacts {
-	height: 30%;
 	width: 85%;
 }
 
-.contacts ul {
+.description img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: 1px solid #1E1E1E;
+	margin: 20px;
+}
+
+.about-content p {
+	margin-top: -20px;
+	padding: 20px;
+	font-size: 16px;
+	line-height: 35px;
+	text-indent: 35px;
+	text-align: justify;
+}
+
+.about-description {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	border: 2px solid #1E1E1E;
+	border-radius: 20px;
+	margin-right: 10px;
+}
+
+.description {
+	display: flex;
+}
+
+.about-header {
+	height: 40px;
+	background: #1E1E1E;
+	color: #fff;
+	border-bottom: 2px solid #1E1E1E;
+	border-top-left-radius: 17px;
+	border-top-right-radius: 17px;
+	text-align: center;
 	padding-top: 10px;
+}
+
+.about-contacts {
+	width: 25%;
+	border: 2px solid #1E1E1E;
+	border-radius: 20px;
+}
+
+.contacts {
+	padding: 20px;
 }
 
 .contacts ul li{
 	font-size: 16px;
-	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .contacts ul li a {
 	padding-left: 10px;
+	color: #000;
 }
 
-.contacts ul li span {
-	padding-left: 9px;
+.contacts ul li img  {
+	height: 25px;
+	width: 25px;
 }

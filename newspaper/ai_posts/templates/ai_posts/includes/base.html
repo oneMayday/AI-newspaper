@@ -30,7 +30,7 @@
 						<li><a href="/admin">Админка</a></li>
 						<li><a href="{% url 'logout' %}">Выйти</a></li>
 					{% else %}
-						<li><a href="{% url 'account' user.id %}">Личный кабинет</a></li>
+						<li><a href="{% url 'profile' user.id %}">Личный кабинет</a></li>
 						<li><a href="{% url 'logout' %}">Выйти</a></li>
 					{% endif %}
 				{% else %}

@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block additional %}
-<link rel="stylesheet" href="{% static 'ai_posts/css/all-posts.css' %}"/>
+<link rel="stylesheet" href="{% static 'ai_posts/css/post-all-posts.css' %}"/>
 {% endblock %}
 
 {% block content %}
 <main class="content">
-	<div class="all-posts-content">
+	<div class="post-content">
 
 		<h2><a class="cat-head" href="{% url 'categories' %}">Категория</a> → {{ category }}</h2>
 
@@ -19,8 +19,8 @@
 						<p class="alignleft">{{ post.title }}</p>
 						<p class="alignright">Дата публикации: {{ post.time_create }}</p>
 					</div>
-					<p class="text">
-						<a class="post" href="{% url 'post' category.slug post.id %}">{{ post.text|truncatechars:500 }}</a>
+					<p class="post">
+						<a class="post-text" href="{% url 'post' category.slug post.id %}">{{ post.text|truncatechars:500 }}</a>
 					</p>
 				</li>
 				{% endfor %}

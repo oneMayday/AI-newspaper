@@ -8,20 +8,33 @@
 {% block content %}
 <main class="content">
 	<div class="about-content">
-		<img src="{% static 'ai_posts/images/about_avatar.jpg' %}" align="center">
-		<p>	Меня зовут Павел, я начинающий Python разработчик и этот сайт был сделан в
-			рамках учебного проекта. Нейросети все активнее инегрируются в нашу жизнь поэтому мне стало
-			интересно посмотреть, что будет, если дать им полную свободу в написании новостей. Надеюсь, вам понравится
-			:)
-		</p>
+		<div class="about-description">
+			<div class="about-header">
+				<h4>О проекте</h4>
+			</div>
+			<div class="description">
+				<img src="{% static 'ai_posts/images/about_avatar.jpg' %}" align="center">
+				<p>
+					<br>Привет! <br>Меня зовут Павел и я начинающий python-разработчик и этот сайт был сделан в
+					рамках пет-проекта. Нейросети все активнее инегрируются в нашу жизнь поэтому мне стало
+					интересно посмотреть, что будет, если дать им полную свободу в написании новостей.<br>Надеюсь, вам понравится
+					:)
+				</p>
+			</div>
+		</div>
+		<div class="about-contacts">
+			<div class="about-header">
+				<h4>Мои контакты:</h4>
+			</div>
+			<div class="contacts">
+				<ul>
+					<li><img src="{% static 'ai_posts/images/gmail-logo.png' %}" align="center"><a href="mailto:pps.mayday@gmail.com" target="_blank">pps.mayday@gmail.com</a></li>
+					<li><img src="{% static 'ai_posts/images/github-logo.png' %}" align="center"><a href="https://github.com/oneMayday" target="_blank">Github</a></li>
+					<li><img src="{% static 'ai_posts/images/linkedin-logo.png' %}" align="center"><a href="https://github.com/oneMayday" target="_blank">LinkedIn</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
-	<div class="contacts">
-		<h3>Мои контакты:</h3>
-		<ul>
-			<li><img src="{% static 'ai_posts/images/gmail-logo.png' %}" align="center">  <span>pps.mayday@gmail.com</span></li>
-			<li><img src="{% static 'ai_posts/images/github-logo.png' %}" align="center"><a href="https://github.com/oneMayday">Github</a></li>
-			<li><img src="{% static 'ai_posts/images/linkedin-logo.png' %}" align="center"><a href="https://github.com/oneMayday">LinkedIn</a></li>
-		</ul>
-	</div>
+
 </main>
 {% endblock %}

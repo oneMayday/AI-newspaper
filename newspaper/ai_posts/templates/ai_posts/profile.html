@@ -17,7 +17,7 @@
 				<ul>
 					{% if mailing_list %}
 						<li>Вы подписаны на категории:  {{ mailing_list }}.</li>
-						<li><a href="{% url 'mailing' %}">Сменить категории</a></li>
+						<li><a href="{% url 'mailing' %}">Изменить категории</a></li>
 						<li><a href="{% url 'clear_mailings' user.id%}">Отписаться от рассылки</a></li>
 					{% else %}
 						<li><a href="{% url 'mailing' %}">Подписаться на рассылку</a></li>

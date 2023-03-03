@@ -47,7 +47,7 @@ def all_posts(request, cat_slug):
     posts = Post.objects.filter(post_category_id=category.id, is_published=True).order_by('-time_create')
 
     # Pagination properties
-    posts_paginator = Paginator(posts, 6)
+    posts_paginator = Paginator(posts, 5)
     page_number = request.GET.get('page')
     page_obj = posts_paginator.get_page(page_number)
 
@@ -62,7 +62,7 @@ def all_posts(request, cat_slug):
 def clear_mailings(request, user_id):
     user = User.objects.get(pk=user_id)
     clear_user_mailings(user)
-    return redirect('account', user_id)
+    return redirect('profile', user_id)
 
 
 def mailing(request):
