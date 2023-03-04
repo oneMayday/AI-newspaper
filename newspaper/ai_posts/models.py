@@ -3,9 +3,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    """ News categories model.
-    """
-
+    """News categories model."""
     title = models.CharField(max_length=30, verbose_name='Категория')
     slug = models.SlugField(max_length=30, unique=True, null=True, verbose_name="Slug")
 
@@ -22,9 +20,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    """ Newspaper posts model.
-    """
-
+    """Newspaper posts model."""
     title = models.CharField(max_length=30, verbose_name='Заголовок')
     text = models.TextField(max_length=1600, verbose_name='Текст статьи')
     time_create = models.DateField(auto_now_add=True, verbose_name='Дата создания')
@@ -44,7 +40,5 @@ class Post(models.Model):
 
 
 class User(AbstractUser):
-    """ Custom user model with an additional field - 'mailings' - mailing list.
-    """
-
+    """Custom user model with an additional field - 'mailings' - mailing list."""
     mailings = models.ManyToManyField(Category)

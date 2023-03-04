@@ -6,8 +6,7 @@ from time import sleep
 
 
 def chatgpt_get_post_header(category):
-	""" Create request to chatGPT and recieve post header.
-	"""
+	"""Create request to chatGPT and recieve post title."""
 
 	completion = openai.Completion.create(
 		engine='text-davinci-003',
@@ -22,8 +21,7 @@ def chatgpt_get_post_header(category):
 
 
 def chatgpt_get_post_text(category):
-	""" Create request to chatGPT and recieve post text.
-	"""
+	"""Create request to chatGPT and recieve post text."""
 
 	completion = openai.Completion.create(
 		engine='text-davinci-003',
@@ -37,8 +35,7 @@ def chatgpt_get_post_text(category):
 
 
 def chatgpt_get_post(category):
-	""" Get post content from chatgpt.
-	"""
+	"""Get post content from chatgpt."""
 
 	post_title = chatgpt_get_post_header(category)
 	sleep(10)

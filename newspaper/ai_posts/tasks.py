@@ -10,9 +10,7 @@ from .services import get_new_posts
 
 @shared_task()
 def send_mailing_confirm(user_email, mailing_list):
-	""" Sends email when the mailing form has been submitted.
-	"""
-
+	"""Sends email when the mailing form has been submitted."""
 	send_mail(
 			'Подписка оформлена (ALT_stories)',
 			f'Вы подписались на категории: {mailing_list}',
@@ -23,9 +21,7 @@ def send_mailing_confirm(user_email, mailing_list):
 
 @shared_task()
 def send_mailing_update_news(user_email):
-	""" Sends email when after creating and publishing new posts.
-	"""
-
+	"""Sends email when after creating and publishing new posts."""
 	send_mail(
 			'ALT_stories',
 			f'Для Вас появились новые посты!\nЗайдите на сайт, чтобы посмотреть',
@@ -36,9 +32,7 @@ def send_mailing_update_news(user_email):
 
 @shared_task(name='update_news')
 def update_news():
-	""" Generate new posts with a chatGPT.
-	"""
-
+	"""Generate new posts with a chatGPT."""
 	categories = Category.objects.all()
 
 	for category in categories:
@@ -58,9 +52,7 @@ def update_news():
 
 @shared_task(name='update_news_mailing')
 def update_news_mailing():
-	""" Check new posts in categories, send emails for all mailed user.
-	"""
-
+	"""Check new posts in categories, send emails for all mailed user."""
 	categories = Category.objects.all()
 	users_for_mailing = []
 

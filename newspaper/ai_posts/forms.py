@@ -10,9 +10,7 @@ User = get_user_model()
 
 
 class UserCreateForm(UserCreationForm):
-	""" Custom authorization form with email field.
-	"""
-
+	"""Custom authorization form with email field."""
 	email = forms.EmailField(
 		label='Email',
 		max_length=254,
@@ -23,10 +21,6 @@ class UserCreateForm(UserCreationForm):
 		"password_mismatch": _("The two password fields didn’t match."),
 		"email_exist": _("Пользователь с таким почтовым адресом уже существует"),
 	}
-
-	class Meta(UserCreationForm.Meta):
-		model = User
-		fields = ('username', 'email')
 
 	def clean_email(self):
 		# Uniqueness processing mail.
@@ -40,14 +34,16 @@ class UserCreateForm(UserCreationForm):
 
 		return email
 
-
-# Forming list of tuples in format("category pk", "category title") for completion checkbox form.
-CATEGORIES = [(category.pk, category) for category in Category.objects.all()]
+	class Meta(UserCreationForm.Meta):
+		model = User
+		fields = ('username', 'email')
 
 
 class Mailing(forms.Form):
-	""" Mailing form.
-	"""
+	"""Mailing form."""
+
+	# Forming list of tuples in format("category pk", "category title") for completion checkbox form.
+	CATEGORIES = [(category.pk, category) for category in Category.objects.all()]
 
 	mailing_categories = forms.MultipleChoiceField(
 		label='Выберите категории',

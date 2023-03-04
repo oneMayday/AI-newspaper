@@ -22,10 +22,10 @@ app.conf.timezone = 'Asia/Baku'
 app.conf.beat_schedule = {
     'Update_news_with_chatGPT': {
         'task': 'update_news',
-        'schedule': crontab(minute=25, hour=12),
+        'schedule': crontab(minute=12, hour=20),
     },
     'Update_db_and_mailing': {
         'task': 'update_news_mailing',
-        'schedule': crontab(minute=35, hour=12),
+        'schedule': crontab(minute=22, hour=20),
     }
 }
