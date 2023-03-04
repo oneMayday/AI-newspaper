@@ -5,7 +5,8 @@ from .models import Post
 
 
 def get_user_mailing_data(user, mailing_form=None):
-	""" Remove old user's mailings from db, add new mailings or return user mailing list. """
+	""" Remove old user's mailings from db, add new mailings or return user mailing list.
+	"""
 
 	user_email = user.email
 
@@ -15,7 +16,7 @@ def get_user_mailing_data(user, mailing_form=None):
 		for cat in mailing_form.cleaned_data.get('mailing_categories'):
 			user.mailings.add(cat)
 
-	# Get new mailings and return it
+	# Get new mailings and return it.
 	new_mailings = User.objects.get(pk=user.pk).mailings.all()
 	mailing_text = [elem.title for elem in new_mailings]
 	mailing_list = ', '.join(mailing_text)
@@ -24,14 +25,16 @@ def get_user_mailing_data(user, mailing_form=None):
 
 
 def clear_user_mailings(user):
-	""" Get all user's mailings and cleat it. """
+	""" Get all user's mailings and cleat it.
+	"""
 
 	all_user_mailings = User.objects.get(pk=user.pk).mailings.all()
 	user.mailings.remove(*all_user_mailings)
 
 
 def get_new_posts(category):
-	""" Get new published posts for today. """
+	""" Get new published posts for today.
+	"""
 
 	today_date = date.today()
 	today_posts = Post.objects.filter(time_create=today_date, post_category=category.pk, is_published=True)

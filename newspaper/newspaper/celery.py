@@ -18,7 +18,7 @@ def debug_task(self):
 
 app.conf.timezone = 'Asia/Baku'
 
-# Periodical tasks, based in tasks.py
+# Periodical tasks, based in tasks.py.
 app.conf.beat_schedule = {
     'Update_news_with_chatGPT': {
         'task': 'update_news',

@@ -10,12 +10,15 @@ from .tasks import send_mailing_confirm
 
 
 class Register(View):
-    """ Registration form. """
+    """ Registration form.
+    """
 
     template_name = 'registration/register.html'
 
     def get(self, request):
-        """ Form view. """
+        """ Form view.
+        """
+
         context = {
             'title': 'Регистрация',
             'form': UserCreateForm(),
@@ -23,11 +26,13 @@ class Register(View):
         return render(request, self.template_name, context)
 
     def post(self, request):
-        """ Processing entering data """
+        """ Processing entering data.
+        """
 
         form = UserCreateForm(request.POST)
 
-        # Checking validation: if validation is True - add user to db, if False - return user to completion form page
+        # Checking validation:
+        # if validation is True - add user to db, if False - return user to completion form page.
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -46,7 +51,7 @@ def all_posts(request, cat_slug):
     category = get_object_or_404(Category, slug=cat_slug)
     posts = Post.objects.filter(post_category_id=category.id, is_published=True).order_by('-time_create')
 
-    # Pagination properties
+    # Pagination properties.
     posts_paginator = Paginator(posts, 5)
     page_number = request.GET.get('page')
     page_obj = posts_paginator.get_page(page_number)
@@ -70,10 +75,10 @@ def mailing(request):
     if request.method == 'POST':
         mailing_form = Mailing(request.POST)
         if mailing_form.is_valid():
-            # Get all users mailings and clear it
+            # Get all users mailings and clear it.
             user = request.user
 
-            # Get user email end mailing list and send confirm email
+            # Get user email end mailing list and send confirm email.
             user_email, mailing_list = get_user_mailing_data(user, mailing_form)
             send_mailing_confirm.delay(user_email, mailing_list)
             done = 'Подписка успешно оформлена!'

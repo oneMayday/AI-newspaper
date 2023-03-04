@@ -10,7 +10,8 @@ User = get_user_model()
 
 
 class UserCreateForm(UserCreationForm):
-	""" Custom authorization form with email field """
+	""" Custom authorization form with email field.
+	"""
 
 	email = forms.EmailField(
 		label='Email',
@@ -28,7 +29,7 @@ class UserCreateForm(UserCreationForm):
 		fields = ('username', 'email')
 
 	def clean_email(self):
-		# Uniqueness processing mail
+		# Uniqueness processing mail.
 		email = self.cleaned_data.get('email')
 		username = self.cleaned_data.get('username')
 		if email and User.objects.filter(email=email).exclude(username=username).exists():
@@ -40,12 +41,13 @@ class UserCreateForm(UserCreationForm):
 		return email
 
 
-# Forming list of tuples in format("category pk", "category title") for completion checkbox form
+# Forming list of tuples in format("category pk", "category title") for completion checkbox form.
 CATEGORIES = [(category.pk, category) for category in Category.objects.all()]
 
 
 class Mailing(forms.Form):
-	""" Mailing form"""
+	""" Mailing form.
+	"""
 
 	mailing_categories = forms.MultipleChoiceField(
 		label='Выберите категории',

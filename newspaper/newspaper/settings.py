@@ -7,16 +7,16 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Secret keys
+# Secret keys.
 SECRET_KEY = config('SECRET_KEY')
 openai.api_key = config('OPEN_AI_KEY')
 
-# Debug settings
+# Debug settings.
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Application definition
+# Application definition.
 INSTALLED_APPS = [
     'ai_posts',
 
@@ -67,7 +67,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'newspaper.wsgi.application'
 
-# Database
+# Database.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -75,7 +75,7 @@ DATABASES = {
     }
 }
 
-# Password validation
+# Password validation.
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -92,7 +92,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
+# Internationalization.
 LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Asia/Baku'
@@ -102,19 +102,19 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images).
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = []
 
-# Custom user model
+# Custom user model.
 AUTH_USER_MODEL = 'ai_posts.User'
 
-# Redirect settings
+# Redirect settings.
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-# Email settings
+# Email settings.
 EMAIL_PORT = 2525
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
@@ -122,15 +122,15 @@ EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_HOST_USER = 'django-mayday@mail.ru'
 EMAIL_HOST_PASSWORD = 'E0YfSp8mhf0x82qpzbum'
 
-# Default primary key field type
+# Default primary key field type.
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Celery settings
+# Celery settings.
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
-# Celery beats settings
+# Celery beats settings.
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
