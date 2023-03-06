@@ -1,7 +1,8 @@
-from datetime import date
-
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
+from django.contrib.auth import authenticate
+
+from datetime import date
 
 from .forms import User
 from .models import Post, Category
@@ -26,20 +27,14 @@ def pagination(request, posts):
 def get_post(cat_slug, post_id):
 	"""Get post"""
 	category = get_object_or_404(Category, slug=cat_slug)
-	target_post = get_object_or_404(Post, pk=post_id)
+	target_post = get_object_or_404(Post, pk=post_id, is_published=True)
 	return category, target_post
 
 
-def get_user_mailing_data(user=None, user_id=None, mailing_form=None):
+def get_user_mailing_data(user=None, mailing_form=None):
 	"""Remove old user's mailings from db, add new mailings or return user mailing list."""
-	if user is None:
-		user = User.objects.get(pk=user_id)
-
-	user_id = user.pk
-	user_email = user.email
-
 	if mailing_form:
-		clear_user_mailings(user_id)
+		clear_user_mailings(user)
 
 		for cat in mailing_form.cleaned_data.get('mailing_categories'):
 			user.mailings.add(cat)
@@ -48,13 +43,11 @@ def get_user_mailing_data(user=None, user_id=None, mailing_form=None):
 	new_mailings = User.objects.get(pk=user.pk).mailings.all()
 	mailing_text = [elem.title for elem in new_mailings]
 	mailing_list = ', '.join(mailing_text)
+	return mailing_list
 
-	return user_email, mailing_list
 
-
-def clear_user_mailings(user_id):
+def clear_user_mailings(user):
 	"""Get all user's mailings and clear it."""
-	user = User.objects.get(pk=user_id)
 	all_user_mailings = User.objects.get(pk=user.pk).mailings.all()
 	user.mailings.remove(*all_user_mailings)
 

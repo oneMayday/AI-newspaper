@@ -12,11 +12,15 @@ class Register(View):
     template_name = 'registration/register.html'
 
     def get(self, request):
-        context = {
-            'title': 'Регистрация',
-            'form': UserCreateForm(),
-        }
-        return render(request, self.template_name, context)
+        user = request.user
+        if user.is_authenticated:
+            return redirect('home')
+        else:
+            context = {
+                'title': 'Регистрация',
+                'form': UserCreateForm(),
+            }
+            return render(request, self.template_name, context)
 
     def post(self, request):
         form = UserCreateForm(request.POST)
@@ -45,7 +49,6 @@ def all_posts(request, cat_slug):
                 'category': category,
                 'page_obj': page_obj
     }
-
     return render(request, 'ai_posts/all_posts.html', context)
 
 
@@ -62,10 +65,14 @@ def post(request, cat_slug, post_id):
 
 def profile(request, user_id):
     """View for user profile page."""
-    user_email, mailing_list = get_user_mailing_data(user_id=user_id)
+    user = request.user
+    if not user.is_authenticated:
+        return redirect('register')
+
+    mailing_list = get_user_mailing_data(user)
     context = {
                 'title': 'Личный кабинет',
-                'user_email': user_email,
+                'user_email': user.email,
                 'mailing_list': mailing_list
     }
     return render(request, 'ai_posts/profile.html', context)
@@ -73,20 +80,28 @@ def profile(request, user_id):
 
 def clear_mailings(request, user_id):
     """View for clear mailings page"""
-    clear_user_mailings(user_id)
+    user = request.user
+    if not user.is_authenticated:
+        return redirect('register')
+
+    clear_user_mailings(user)
     return redirect('profile', user_id)
 
 
 def mailing(request):
     """View for mailing page."""
+    user = request.user
+    if not user.is_authenticated:
+        return redirect('register')
+
     done = ''
     if request.method == 'POST':
         mailing_form = Mailing(request.POST)
         if mailing_form.is_valid():
-            user = request.user
+
             # Add new users mailings, clear it
-            user_email, mailing_list = get_user_mailing_data(user=user, mailing_form=mailing_form)
-            send_mailing_confirm.delay(user_email, mailing_list)
+            mailing_list = get_user_mailing_data(user, mailing_form)
+            send_mailing_confirm.delay(user.email, mailing_list)
             done = 'Подписка успешно оформлена!'
     else:
         mailing_form = Mailing()
