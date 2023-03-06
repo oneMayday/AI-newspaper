@@ -24,6 +24,7 @@ def pagination(request, posts):
 
 
 def get_post(cat_slug, post_id):
+	"""Get post"""
 	category = get_object_or_404(Category, slug=cat_slug)
 	target_post = get_object_or_404(Post, pk=post_id)
 	return category, target_post
