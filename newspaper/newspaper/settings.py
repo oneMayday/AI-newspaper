@@ -119,8 +119,8 @@ EMAIL_PORT = 2525
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST = 'smtp.mail.ru'
-EMAIL_HOST_USER = 'django-mayday@mail.ru'
-EMAIL_HOST_PASSWORD = 'E0YfSp8mhf0x82qpzbum'
+EMAIL_HOST_USER = 'django-mayday1@mail.ru'
+EMAIL_HOST_PASSWORD = 'peurTEw3wFhcstdrHf4G'
 
 # Default primary key field type.
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

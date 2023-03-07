@@ -106,23 +106,33 @@ def mailing(request):
     else:
         mailing_form = Mailing()
 
-    context = {'title': 'Рассылка',
-               'done': done,
-               'mailing_form': mailing_form,
-               }
+    context = {
+        'title': 'Рассылка',
+        'done': done,
+        'mailing_form': mailing_form,
+    }
     return render(request, 'ai_posts/mailing.html', context)
 
 
 def index(request):
     """View for main page."""
-    return render(request, 'ai_posts/index.html', {'title': 'Главная'})
+    context = {
+        'title': 'Главная',
+    }
+    return render(request, 'ai_posts/index.html', context)
 
 
 def about(request):
     """View for about page."""
-    return render(request, 'ai_posts/about.html', {'title': 'О нас/Контакты'})
+    context = {
+        'title': 'О нас/Контакты',
+    }
+    return render(request, 'ai_posts/about.html', context)
 
 
 def categories(request):
     """View for categories page."""
-    return render(request, 'ai_posts/categories.html', {'title': 'Категории'})
+    context = {
+        'title': 'Категории',
+    }
+    return render(request, 'ai_posts/categories.html', context)

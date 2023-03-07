@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from django.test.client import Client
 
 from ..models import Category, Post, User
@@ -51,14 +51,28 @@ class Settings(TestCase):
 		self.user = User.objects.create_user(
 			username='test_user',
 			email='test-email@test.ru',
-			password='test_password',
+			password='test_password'
 		)
 
 		self.user.mailings.set([self.category1, self.category2])
 
+		# Anonymous and authenticated users
 		self.guest_client = Client()
 		self.authorized_client = Client()
 		self.authorized_client.login(username='test_user', password='test_password')
 
+		# Client for request simulation
+		self.request_factory = RequestFactory()
+
 	def tearDown(self):
 		super().tearDown()
+
+	@staticmethod
+	def url_page_error(page):
+		error_page_message = f'Ошибка доступа к странице {page}'
+		return error_page_message
+
+	@staticmethod
+	def url_template_error(page, template):
+		error_template_message = f'Ошибка: {page} ожидал шаблон {template}'
+		return error_template_message

@@ -14,7 +14,7 @@ def send_mailing_confirm(user_email, mailing_list):
 	send_mail(
 			'Подписка оформлена (ALT_stories)',
 			f'Вы подписались на категории: {mailing_list}',
-			'django-mayday@mail.ru',
+			'django-mayday1@mail.ru',
 			[user_email],
 	)
 
@@ -25,7 +25,7 @@ def send_mailing_update_news(user_email):
 	send_mail(
 			'ALT_stories',
 			f'Для Вас появились новые посты!\nЗайдите на сайт, чтобы посмотреть',
-			'django-mayday@mail.ru',
+			'django-mayday@mail1.ru',
 			[user_email],
 	)
 

@@ -25,7 +25,7 @@
 					{% last-post cat as last %}
 					<a class="index-post" href="{% url 'post' cat.slug last.id %}">
 						<h4>{{ last }}</h4>
-						<p style="text-align: justify;">{{ last.text | truncatechars:145 }}</p>
+						<p style="text-align: justify;">{{ last.text | truncatechars:150 }}</p>
 					</a>
 				</div>
 			</li>
