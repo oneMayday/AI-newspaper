@@ -67,12 +67,27 @@ class ViewsTest(Settings):
 		context = {
 			'title': self.category1.title,
 			'category': self.category1,
-			'expected_posts': '.Тестовый пост 1',
+			'expected_posts': self.post1,
 		}
 		template = 'ai_posts/all_posts.html'
 
 		response = self.guest_client.get(page)
 		self.assertEqual(response.context['title'], context['title'])
 		self.assertEqual(response.context['category'], context['category'])
-		self.assertEqual(*response.context['page_obj'], self.post1)
+		self.assertEqual(*response.context['page_obj'], context['expected_posts'])
+		self.assertTemplateUsed(response, template)
+
+	def test_post_correct_context_and_template(self):
+		page = reverse('post', kwargs={'cat_slug': self.category1.slug, 'post_id': self.post1.id})
+		context = {
+			'title': self.post1.title,
+			'post': self.post1,
+			'category': self.category1,
+		}
+		template = 'ai_posts/post.html'
+
+		response = self.guest_client.get(page)
+		self.assertEqual(response.context['title'], context['title'])
+		self.assertEqual(response.context['post'], context['post'])
+		self.assertEqual(response.context['category'], context['category'])
 		self.assertTemplateUsed(response, template)
