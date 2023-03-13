@@ -12,19 +12,32 @@ class CategoryTest(Settings):
 
 
 class PostTest(Settings):
-	def test_get_last_post(self):
+	def test_get_last_post_positive(self):
 		last_post = get_last_post(self.category1.pk)
 		self.assertEqual(last_post, self.post1)
 
-		new_post = Post(
+		self.new_post = Post(
 			title='Last post',
 			text='Actually last post',
 			post_category=self.category1,
 			is_published=True
 		)
-		new_post.save()
-		new_post.time_create = datetime.date(2025, 12, 5)
-		new_post.save()
+		self.new_post.save()
+		self.new_post.time_create = datetime.date(2025, 12, 5)
+		self.new_post.save()
 
 		last_post = get_last_post(self.category1.pk)
-		self.assertEqual(last_post, new_post)
+		self.assertEqual(last_post, self.new_post)
+
+	def test_get_last_post_negative(self):
+		self.new_post = Post(
+			title='Last post',
+			text='Actually last post',
+			post_category=self.category1,
+			is_published=False
+		)
+		self.post1.is_published = False
+		self.post1.save()
+
+		last_post = get_last_post(self.category1.pk)
+		self.assertEqual(last_post, 'Упс... Для данной категории пока нет новостей')

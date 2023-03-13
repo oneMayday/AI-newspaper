@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
-from django.views import View
 from django.shortcuts import render, redirect
+from django.views import View
 
 from .forms import UserCreateForm, Mailing
 from .services import get_all_posts_from_category, get_post, get_user_mailing_data, clear_user_mailings
