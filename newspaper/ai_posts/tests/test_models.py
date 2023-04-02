@@ -30,8 +30,8 @@ class PostTest(Settings):
 		self.assertEqual([post for post in Post.objects.filter(is_published=False)], [self.post2, self.post4])
 
 	def test_meta_poles(self) -> None:
-		self.assertEqual(self.category1._meta.verbose_name, 'Пост')
-		self.assertEqual(self.category1._meta.verbose_name_plural, 'Посты')
+		self.assertEqual(self.post1._meta.verbose_name, 'Пост')
+		self.assertEqual(self.post1._meta.verbose_name_plural, 'Посты')
 
 
 class UserTest(Settings):

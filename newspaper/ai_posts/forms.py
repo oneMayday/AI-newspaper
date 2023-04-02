@@ -18,8 +18,8 @@ class UserCreateForm(UserCreationForm):
 	)
 
 	error_messages = {
-		"password_mismatch": _("The two password fields didn’t match."),
-		"email_exist": _("Пользователь с таким почтовым адресом уже существует"),
+		"password_mismatch": _("Введенные пароли не совпадают."),
+		"email_exist": _("Пользователь с таким почтовым адресом уже существует."),
 	}
 
 	def clean_email(self):

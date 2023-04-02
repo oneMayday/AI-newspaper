@@ -1,9 +1,9 @@
 from datetime import date
 
-from .tests_setup import Settings
 from ..models import Post
 from ..templatetags.category_tags import get_categories
 from ..templatetags.post_tags import get_last_post
+from .tests_setup import Settings
 
 
 class CategoryTest(Settings):

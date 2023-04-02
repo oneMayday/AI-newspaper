@@ -1,6 +1,3 @@
-import datetime
-import time
-
 from django.test import TestCase, RequestFactory
 from django.test.client import Client
 
