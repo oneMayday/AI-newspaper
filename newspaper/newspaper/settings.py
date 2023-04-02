@@ -115,12 +115,12 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 # Email settings.
-EMAIL_PORT = 2525
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-EMAIL_HOST = 'smtp.mail.ru'
-EMAIL_HOST_USER = 'django-mayday1@mail.ru'
-EMAIL_HOST_PASSWORD = 'peurTEw3wFhcstdrHf4G'
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_USE_SSL = config('EMAIL_USE_SSL')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # Default primary key field type.
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
