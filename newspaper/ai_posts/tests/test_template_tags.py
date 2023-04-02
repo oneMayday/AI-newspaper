@@ -1,4 +1,4 @@
-import datetime
+from datetime import date
 
 from .tests_setup import Settings
 from ..models import Post
@@ -23,7 +23,7 @@ class PostTest(Settings):
 			is_published=True
 		)
 		self.new_post.save()
-		self.new_post.time_create = datetime.date(2025, 12, 5)
+		self.new_post.time_create = date(2025, 12, 5)
 		self.new_post.save()
 
 		last_post = get_last_post(self.category1.pk)
