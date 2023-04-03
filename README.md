@@ -7,9 +7,9 @@
 Задачи генерации контента и рассылки реализованы через очередь Celery, расписание задач - Celery-beat, в качестве брокера сообщений используется Redis. 
 <br></br>
 <p align="center"> 
-<img src="https://i.postimg.cc/ht2sy2K1/main.png" width='30%' height='30%'>
-<img src="https://i.postimg.cc/zv9GBGGd/cats.png" width='30%' height='30%'>
-<img src="https://i.postimg.cc/Qxfr0t3v/posts.png" width='30%' height='30%'>
+<img src="https://i.postimg.cc/ht2sy2K1/main.png" width='32%' height='32%'>
+<img src="https://i.postimg.cc/zv9GBGGd/cats.png" width='32%' height='32%'>
+<img src="https://i.postimg.cc/Qxfr0t3v/posts.png" width='32%' height='32%'>
 </p>
 
 <h2>Порядок установки:</h2>
