@@ -1,8 +1,8 @@
 import os
-import openai
-
 from pathlib import Path
 from decouple import config
+
+import openai
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,7 +14,7 @@ openai.api_key = config('OPEN_AI_KEY')
 # Debug settings.
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition.
 INSTALLED_APPS = [

@@ -1,4 +1,0 @@
- Описание
-
- celery --app=newspaper worker --pool=solo --loglevel=INFO
- celery -A newspaper beat -l INFO  #для beat
