@@ -42,9 +42,3 @@ class ServicesTest(Settings):
 		self.assertTrue(today_posts)
 		today_posts = get_new_posts(new_category)
 		self.assertFalse(today_posts)
-
-	# def test_get_user_mailing_data(self):
-	#
-	# 	mailing_list = get_user_mailing_data(self.user, self.mailing_form)
-	# 	print(mailing_list)
-	# 	self.assertEqual(mailing_list, '!!!!')
