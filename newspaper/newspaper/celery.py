@@ -16,7 +16,7 @@ def debug_task(self):
     print(f'Request: {self.request!r}')
 
 
-app.conf.timezone = 'Asia/Baku'
+app.conf.timezone = 'UTC'
 
 # Periodical tasks, based in tasks.py.
 app.conf.beat_schedule = {

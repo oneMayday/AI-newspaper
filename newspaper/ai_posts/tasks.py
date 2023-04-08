@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.mail import send_mail
 
 from celery import shared_task
@@ -14,7 +15,7 @@ def send_mailing_confirm(user_email, mailing_list):
 	send_mail(
 			'Подписка оформлена (ALT_stories)',
 			f'Вы подписались на категории: {mailing_list}',
-			'django-mayday1@mail.ru',
+			settings.EMAIL_HOST_USER,
 			[user_email],
 	)
 
@@ -25,7 +26,7 @@ def send_mailing_update_news(user_email):
 	send_mail(
 			'ALT_stories',
 			f'Для Вас появились новые посты!\nЗайдите на сайт, чтобы посмотреть',
-			'django-mayday@mail1.ru',
+			settings.EMAIL_HOST_USER,
 			[user_email],
 	)
 
