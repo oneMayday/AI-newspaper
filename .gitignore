@@ -2,7 +2,10 @@
 venv/
 *__pycache__/
 *migrations/
+.dbeaver/
 
 db.sqlite3
 .env
 .coverage
+.project
+.env.prod

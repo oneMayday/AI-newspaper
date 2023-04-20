@@ -10,7 +10,7 @@ def chatgpt_get_post_header(category):
 
 	completion = openai.Completion.create(
 		engine='text-davinci-003',
-		prompt=f'Придумай заголовок новости о {category.title}. Ограничение - 20 символов.',
+		prompt=f'Придумай оригинальный заголовок новости о {category.title}. Ограничение - 20 символов.',
 		max_tokens=1024,
 		temperature=0.5,
 		top_p=1
@@ -25,7 +25,7 @@ def chatgpt_get_post_text(category):
 
 	completion = openai.Completion.create(
 		engine='text-davinci-003',
-		prompt=f'Напиши несущесвтующую новость о {category.title} на 1500 символов',
+		prompt=f'Напиши необычную новость о {category.title} на 2000 символов. Новость должна быть оригинальной и интересной',
 		max_tokens=4000,
 		temperature=0.5,
 		top_p=1,

@@ -98,7 +98,6 @@ def mailing(request):
     if request.method == 'POST':
         mailing_form = Mailing(request.POST)
         if mailing_form.is_valid():
-
             # Add new users mailings, clear it
             mailing_list = get_user_mailing_data(user, mailing_form)
             send_mailing_confirm.delay(user.email, mailing_list)

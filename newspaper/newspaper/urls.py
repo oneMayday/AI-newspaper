@@ -7,10 +7,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ai_posts.urls')),
 ]
-
-if settings.DEBUG:
-    import debug_toolbar
-
-    urlpatterns = [
-        path('__debug__/', include('debug_toolbar.urls')),
-    ] + urlpatterns

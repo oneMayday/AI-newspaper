@@ -44,7 +44,7 @@ def update_news():
 				title=post_title,
 				text=post_text,
 				post_category=category,
-				is_published=False
+				is_published=True
 			)
 			new_post.save()
 		except Exception:

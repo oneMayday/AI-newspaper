@@ -1,0 +1,8 @@
+__pycache__/
+.venv/
+.dbeaver
+
+.env
+example.env
+newspaper/example.env.prod
+.project

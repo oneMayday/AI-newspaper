@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  web:
+    build: ./
+    command: python newspaper/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+      - "465:465"
+    env_file:
+      - newspaper/.env.prod
+
+  celery-beat:
+    build: ./
+    command: celery --app newspaper beat -l info
+    depends_on:
+      - web
+      - redis
+
+  celery:
+    build: ./
+    command: celery -A newspaper worker --loglevel=info
+    depends_on:
+      - redis
+      - web
+      - celery-beat
+
+  redis:
+    image: redis:7.0.11-alpine
