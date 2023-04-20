@@ -50,7 +50,15 @@
 	python manage.py runserver
 
 </details>
-
+<details>
+	
+<summary>Сборка docker контейнера (опционально):</summary>
+	Переименовываем файл example.env.prod в .env.prod, прописываем в нём свои ключи и данные SMTP сервера.
+	Важно! Для правильной сборки оставляем значения CELERY_BROKER_URL и CELERY_RESULT_BACKEND.
+	Переходим в директорию проекта и запускаем контейнер командой:
+	
+	docker-compose up -d --build
+</details>
 
 <details>
 <summary>Установка и настройка Redis, Celery и Celery-beat.</summary>
