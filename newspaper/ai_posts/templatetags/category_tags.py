@@ -8,4 +8,8 @@ register = template.Library()
 
 @register.simple_tag()
 def get_categories():
-	return Category.objects.all()
+	try:
+		categories = Category.objects.all()
+	except Exception:
+		categories = 'Тут пока пусто, заполните значения через админку'
+	return categories

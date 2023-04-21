@@ -23,10 +23,14 @@
 				<h2><a class="menu-style" href="{% url 'all_posts' cat.slug %}">{{ cat }}</a></h2>
 				<div class="post">
 					{% last-post cat as last %}
+					{% if last.id %}
 					<a class="index-post" href="{% url 'post' cat.slug last.id %}">
 						<h4>{{ last }}</h4>
 						<p style="text-align: justify;">{{ last.text | truncatechars:150 }}</p>
 					</a>
+					{% else %}
+					{{ last }}
+					{% endif %}
 				</div>
 			</li>
 			{% endfor %}
